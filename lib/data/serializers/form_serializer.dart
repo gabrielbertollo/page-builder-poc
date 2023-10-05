@@ -6,9 +6,12 @@ import 'page_builder.dart';
 class FormSerializer {
   static Widget fromJson(Map<String, dynamic> json) {
     return FormComponent(
-        children: json['children'] != null
-            ? List<Widget>.from(
-                json['children'].map((child) => PageBuilder.fromJson(child)))
-            : []);
+      formKey: GlobalKey<FormState>(),
+      submitText: json['submitText'] as String? ?? 'Submit',
+      children: json['children'] != null
+          ? List<Widget>.from(
+              json['children'].map((child) => PageBuilder.fromJson(child)))
+          : [],
+    );
   }
 }

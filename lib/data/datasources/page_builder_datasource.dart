@@ -4,62 +4,38 @@ import '../serializers/page_builder.dart';
 class PageBuilderDatasource {
   Future<Widget> getPageBuilder() async {
     final Map<String, dynamic> response = {
-      'type': 'GridViewComponent',
+      'type': 'FormComponent',
+      'submitText': 'Submit',
       'children': [
         {
-          'type': 'CardComponent',
-          'child': {
-            'type': 'TextComponent',
-            'text': 'Hello World',
-            'fontSize': 14.0,
-          },
+          'type': 'TextInputComponent',
+          'label': 'Name',
+          'initialValue': null,
+          'required': true,
         },
         {
-          'type': 'CardComponent',
-          'child': {
-            'type': 'TextComponent',
-            'text': 'Hello World',
-            'fontSize': 14.0,
-          },
+          'type': 'TextInputComponent',
+          'label': 'Email',
+          'initialValue': null,
+          'required': true,
         },
         {
-          'type': 'CardComponent',
-          'child': {
-            'type': 'TextComponent',
-            'text': 'Hello World',
-            'fontSize': 14.0,
-          },
+          'type': 'TextInputComponent',
+          'label': 'Phone',
+          'initialValue': null,
+          'required': false,
         },
         {
-          'type': 'CardComponent',
-          'child': {
-            'type': 'TextComponent',
-            'text': 'Hello World',
-            'fontSize': 14.0,
-          },
-        },
-        {
-          'type': 'CardComponent',
-          'child': {
-            'type': 'TextComponent',
-            'text': 'Hello World',
-            'fontSize': 14.0,
-          },
-        },
-        {
-          'type': 'CardComponent',
-          'child': {
-            'type': 'TextComponent',
-            'text': 'Hello World',
-            'fontSize': 14.0,
-          },
-        },
-        {
-          'type': 'TextComponent',
-          'text': 'Hello World',
-          'fontSize': 14.0,
-        },
-      ],
+          'type': 'FileInputComponent',
+          'label': 'Resume',
+          'initialValue': [
+            'file1',
+            'file2',
+            'file3',
+          ],
+          'required': true,
+        }
+      ]
     };
     await Future.delayed(const Duration(seconds: 2));
 
