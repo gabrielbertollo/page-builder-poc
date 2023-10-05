@@ -1,5 +1,5 @@
 name: page_builder_poc
-description: A new Flutter project.
+description: Proof of concept for a low-code Flutter app.
 publish_to: 'none'
 version: 0.1.0
 
@@ -11,9 +11,9 @@ dependencies:
     sdk: flutter
 
 dev_dependencies:
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
 
 flutter:
   uses-material-design: true
