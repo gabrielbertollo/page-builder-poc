@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'file_input_component.dart';
+import 'text_input_component.dart';
 
 class FormComponent extends StatefulWidget {
   final List<Widget> children;
@@ -40,6 +41,10 @@ class _FormComponentState extends State<FormComponent> {
                     onPressed: () {
                       for (final element in widget.children) {
                         if (element is FileInputComponent) {
+                          GlobalKey<FormFieldState> key =
+                              element.inputKey as GlobalKey<FormFieldState>;
+                          print(key.currentState?.value);
+                        } else if (element is TextInputComponent) {
                           GlobalKey<FormFieldState> key =
                               element.inputKey as GlobalKey<FormFieldState>;
                           print(key.currentState?.value);
