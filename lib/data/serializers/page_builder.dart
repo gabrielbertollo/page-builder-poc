@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'button_serializer.dart';
 import 'card_serializer.dart';
 import 'file_input_serializer.dart';
 import 'form_serializer.dart';
 import 'grid_view_serializer.dart';
 import 'list_view_serializer.dart';
+import 'spacer_serializer.dart';
 import 'text_input_serializer.dart';
 import 'text_serializer.dart';
 
@@ -26,6 +28,10 @@ class PageBuilder {
         return TextInputSerializer.fromJson(json);
       case 'FileInputComponent':
         return FileInputSerializer.fromJson(json);
+      case 'ButtonComponent':
+        return ButtonSerializer.fromJson(json);
+      case 'SpacerComponent':
+        return SpacerSerializer.fromJson(json);
       default:
         return Container();
     }
