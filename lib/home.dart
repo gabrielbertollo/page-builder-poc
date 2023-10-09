@@ -39,7 +39,7 @@ class _HomeState extends State<Home> {
           if (snapshot.hasData) {
             return snapshot.data!;
           } else if (snapshot.hasError) {
-            return const Center(child: Text('Error'));
+            return Center(child: Text(snapshot.error.toString()));
           } else {
             return const Center(child: CircularProgressIndicator());
           }
