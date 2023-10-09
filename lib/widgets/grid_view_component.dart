@@ -1,20 +1,55 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+
+import '../core/helpers/screen_size_extension.dart';
 
 class GridViewComponent extends StatelessWidget {
   final List<Widget> children;
+  final int? crossAxisCount;
 
   const GridViewComponent({
     this.children = const [],
+    this.crossAxisCount,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return GridView(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
+    return SingleChildScrollView(
+      padding: EdgeInsets.symmetric(
+        vertical: 10.0,
+        horizontal: () {
+          if (context.width > 1220.0) {
+            return (context.width - 1200.0) / 2;
+          }
+          return 10.0;
+        }(),
       ),
-      children: children,
+      child: StaggeredGrid.count(
+        mainAxisSpacing: 4.0,
+        crossAxisSpacing: 4.0,
+        crossAxisCount: crossAxisCount ??
+            () {
+              /// context.width ~/ 225 is a way to get the ideal
+              /// number of columns for the current screen width
+              /// based on the ideal card width of 225.0
+              ///
+              /// TODO refactor to move this out?
+              if (context.width ~/ 225 >= children.length) {
+                /// This is here because [cards.length] is not
+                /// a const so it cant be used in the switch
+                ///
+                /// TODO refactor to move this out?
+                return children.length;
+              }
+              return switch (context.width ~/ 225) {
+                <= 1 => 2,
+                >= 6 => 6,
+                _ => context.width ~/ 225,
+              };
+            }(),
+        children: children,
+      ),
     );
   }
 }

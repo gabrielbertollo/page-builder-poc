@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
-import 'page_builder.dart';
 import '../../widgets/card_component.dart';
 
 class CardSerializer {
   static Widget fromJson(Map<String, dynamic> json) {
     return CardComponent(
-      color: json['color'] != null ? Color(json['color']) : null,
-      child: PageBuilder.fromJson(json['child']),
+      title: json['title'],
+      subtitle: json['subtitle'],
+      iconUrl: json['iconUrl'],
+      action: json['action'],
+      backgroundColor: json['color'] != null ? Color(json['color']) : null,
+      backgroundImageUrl: json['backgroundImageUrl'],
+      horizontalAlignment: json['horizontalAlignment'] ?? 'start',
+      verticalAlignment: json['verticalAlignment'] ?? 'center',
+      verticalSize: json['verticalSize'] ?? 1,
+      horizontalSize: json['horizontalSize'] ?? 1,
     );
   }
 }
