@@ -5,35 +5,30 @@ class PageBuilderDatasource {
   Future<Widget> getPageBuilder() async {
     final Map<String, dynamic> response = {
       'type': 'FormComponent',
-      'submitText': 'Submit',
       'children': [
         {
-          'type': 'TextInputComponent',
-          'label': 'Name',
-          'initialValue': null,
-          'required': true,
+          'type': 'ButtonComponent',
+          'label': 'Test your might',
+          'action': {
+            'type': 'modal',
+            'child': {
+              'type': 'ModalComponent',
+              'title': 'Test your might',
+              'description': 'Finish him!',
+            }
+          },
         },
         {
-          'type': 'TextInputComponent',
-          'label': 'Email',
-          'initialValue': null,
-          'required': true,
+          'type': 'SpacerComponent',
+          'height': 10,
         },
         {
-          'type': 'TextInputComponent',
-          'label': 'Phone',
-          'initialValue': null,
-          'required': false,
-        },
-        {
-          'type': 'FileInputComponent',
-          'label': 'Resume',
-          'initialValue': [
-            'file1',
-            'file2',
-            'file3',
-          ],
-          'required': true,
+          'type': 'ButtonComponent',
+          'label': 'Go to test page',
+          'action': {
+            'type': 'navigation',
+            'route': '/test',
+          },
         }
       ]
     };
