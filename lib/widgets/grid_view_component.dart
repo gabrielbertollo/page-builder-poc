@@ -5,11 +5,15 @@ import '../core/helpers/screen_size_extension.dart';
 
 class GridViewComponent extends StatelessWidget {
   final List<Widget> children;
-  final int? crossAxisCount;
+  final int? columnCount;
+  final int minColumnCount;
+  final double cardScale;
 
   const GridViewComponent({
     this.children = const [],
-    this.crossAxisCount,
+    this.columnCount,
+    this.minColumnCount = 2,
+    this.cardScale = 225.0,
     super.key,
   });
 
@@ -28,24 +32,24 @@ class GridViewComponent extends StatelessWidget {
       child: StaggeredGrid.count(
         mainAxisSpacing: 4.0,
         crossAxisSpacing: 4.0,
-        crossAxisCount: crossAxisCount ??
+        crossAxisCount: columnCount ??
             () {
               /// context.width ~/ 225 is a way to get the ideal
               /// number of columns for the current screen width
               /// based on the ideal card width of 225.0
               ///
               /// TODO refactor to move this out?
-              if (context.width ~/ 225 >= children.length) {
+              if (context.width ~/ cardScale >= children.length) {
                 /// This is here because [cards.length] is not
                 /// a const so it cant be used in the switch
                 ///
                 /// TODO refactor to move this out?
                 return children.length;
               }
-              return switch (context.width ~/ 225) {
-                <= 1 => 2,
+              return switch (context.width ~/ cardScale) {
+                <= 1 => minColumnCount,
                 >= 6 => 6,
-                _ => context.width ~/ 225,
+                _ => context.width ~/ cardScale,
               };
             }(),
         children: children,
