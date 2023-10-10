@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'button_serializer.dart';
 import 'card_serializer.dart';
+import 'drawer_serializer.dart';
 import 'file_input_serializer.dart';
 import 'form_serializer.dart';
 import 'grid_view_serializer.dart';
 import 'list_view_serializer.dart';
+import 'pages/drawer_page_serializer.dart';
 import 'spacer_serializer.dart';
 import 'text_input_serializer.dart';
 import 'text_serializer.dart';
@@ -14,6 +16,7 @@ class PageBuilder {
     final String type = json['type'];
 
     switch (type) {
+      /// SECTION: Widgets
       case 'ListViewComponent':
         return ListViewSerializer.fromJson(json);
       case 'GridViewComponent':
@@ -32,6 +35,13 @@ class PageBuilder {
         return ButtonSerializer.fromJson(json);
       case 'SpacerComponent':
         return SpacerSerializer.fromJson(json);
+      case 'DrawerComponent':
+        return DrawerSerializer.fromJson(json);
+
+      /// SECTION: Pages
+      case 'DrawerPage':
+        return DrawerPageSerializer.fromJson(json);
+
       default:
         return Container();
     }

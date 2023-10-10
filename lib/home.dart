@@ -32,16 +32,19 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Page Builder POC')),
       body: FutureBuilder<Widget>(
         future: _pageBuilderCompleter.future,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return snapshot.data!;
           } else if (snapshot.hasError) {
-            return Center(child: Text(snapshot.error.toString()));
+            return Scaffold(
+              body: Center(child: Text(snapshot.error.toString())),
+            );
           } else {
-            return const Center(child: CircularProgressIndicator());
+            return const Scaffold(
+              body: Center(child: CircularProgressIndicator()),
+            );
           }
         },
       ),
