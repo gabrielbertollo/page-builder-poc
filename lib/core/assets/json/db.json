@@ -1,0 +1,161 @@
+{
+    "home": {
+        "type": "DrawerPage",
+        "title": {
+            "type": "TextComponent",
+            "text": "Página Inicial"
+        },
+        "drawer": {
+            "type": "DrawerComponent"
+        },
+        "body": {
+            "type": "GridViewComponent",
+            "children": [
+                {
+                    "type": "CardComponent",
+                    "title": "Ouvidoria",
+                    "subtitle": "Algum problema?",
+                    "iconUrl": "https://cdn-icons-png.flaticon.com/512/2838/2838912.png",
+                    "verticalSize": 1,
+                    "horizontalAlignment": "start",
+                    "action": {
+                        "type": "navigation",
+                        "route": "/builder",
+                        "requestUrl": "http://localhost:3000/form"
+                    }
+                },
+                {
+                    "type": "CardComponent",
+                    "title": "Blog",
+                    "iconUrl": "https://cdn-icons-png.flaticon.com/512/2838/2838912.png",
+                    "action": {
+                        "type": "navigation",
+                        "route": "/builder",
+                        "requestUrl": "http://localhost:3000/blog"
+                    }
+                },
+                {
+                    "type": "CardComponent",
+                    "title": "Conheça a Cidade",
+                    "iconUrl": "https://cdn-icons-png.flaticon.com/512/2838/2838912.png",
+                    "action": {
+                        "type": "modal",
+                        "child": {
+                            "title":"Login necessário",
+                            "description": "Para acessar essa funcionalidade é necessário estar logado"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "blog": {
+        "type": "SearchablePage",
+        "title": {
+          "type": "TextComponent",
+          "text": "Página Inicial"
+        },
+        "searchable": true,
+        "body": {
+          "type": "GridViewComponent",
+          "cardScale": 350.0,
+          "minColumnCount": 1,
+          "children": [
+            {
+              "type": "PostComponent",
+              "title": {
+                "type": "TextComponent",
+                "text": "Post 1"
+              },
+              "imageUrl":
+                  "https://source.unsplash.com/600x300?purple,abstract&random=50",
+              "action": {
+                "type": "navigation",
+                "route": "/builder",
+                "requestUrl": "http://localhost:3000/home"
+              }
+            },
+            {
+              "type": "PostComponent",
+              "title": {
+                "type": "TextComponent",
+                "text": "Post 1"
+              },
+              "imageUrl":
+                  "https://source.unsplash.com/600x300?purple,abstract&random=80",
+              "action": {
+                "type": "navigation",
+                "route": "/media"
+              }
+            },
+            {
+              "type": "PostComponent",
+              "title": {
+                "type": "TextComponent",
+                "text": "Post 1"
+              },
+              "imageUrl":
+                  "https://source.unsplash.com/600x300?purple,abstract&random=96",
+              "action": {
+                "type": "navigation",
+                "route": "/media"
+              }
+            },
+            {
+              "type": "PostComponent",
+              "title": {
+                "type": "TextComponent",
+                "text": "Post 1"
+              },
+              "imageUrl":
+                  "https://source.unsplash.com/600x300?purple,abstract&random=32",
+              "action": {
+                "type": "navigation",
+                "route": "/media"
+              }
+            }
+          ]
+        }
+    },
+    "form": {
+        "type": "DrawerPage",
+        "title": {
+            "type": "TextComponent",
+            "text": "Ouvidoria"
+        },
+        "body": {
+            "type": "FormComponent",
+            "children": [
+                {
+                    "type": "TextComponent",
+                    "text": "Preencha o formulário abaixo para enviar sua mensagem"
+                },
+                {
+                    "type": "TextInputComponent",
+                    "label": "Nome",
+                    "required": true
+                },
+                {
+                    "type": "TextInputComponent",
+                    "label": "Email",
+                    "required": true
+                },
+                {
+                    "type": "TextInputComponent",
+                    "label": "Telefone",
+                    "required": true
+                },
+                {
+                    "type": "TextInputComponent",
+                    "label": "Mensagem",
+                    "required": true
+                },
+                {
+                    "type": "FileInputComponent",
+                    "label": "Anexo",
+                    "required": false
+                }
+            ]
+        }
+    }
+}
