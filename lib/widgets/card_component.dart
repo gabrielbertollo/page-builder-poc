@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
+import '../core/helpers/material_theme_extension.dart';
 import '../core/helpers/screen_size_extension.dart';
 import '../data/action_handler.dart';
 
@@ -112,8 +113,7 @@ class CardComponent extends StatelessWidget {
                                       if (context.isDesktop) return 22.0;
                                       return 18.0;
                                     }(),
-                                    color:
-                                        Theme.of(context).colorScheme.secondary,
+                                    color: context.colorScheme.secondary,
                                   ),
                                 ),
                               ),
@@ -138,8 +138,7 @@ class CardComponent extends StatelessWidget {
                                     if (context.isDesktop) return 22.0;
                                     return 18.0;
                                   }(),
-                                  color:
-                                      Theme.of(context).colorScheme.secondary,
+                                  color: context.colorScheme.secondary,
                                 ),
                               ),
                             ),
