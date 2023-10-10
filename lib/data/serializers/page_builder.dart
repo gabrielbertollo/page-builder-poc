@@ -7,6 +7,8 @@ import 'form_serializer.dart';
 import 'grid_view_serializer.dart';
 import 'list_view_serializer.dart';
 import 'pages/drawer_page_serializer.dart';
+import 'pages/searchable_page_serializer.dart';
+import 'post_serializer.dart';
 import 'spacer_serializer.dart';
 import 'text_input_serializer.dart';
 import 'text_serializer.dart';
@@ -37,10 +39,14 @@ class PageBuilder {
         return SpacerSerializer.fromJson(json);
       case 'DrawerComponent':
         return DrawerSerializer.fromJson(json);
+      case 'PostComponent':
+        return PostSerializer.fromJson(json);
 
       /// SECTION: Pages
       case 'DrawerPage':
         return DrawerPageSerializer.fromJson(json);
+      case 'SearchablePage':
+        return SearchablePageSerializer.fromJson(json);
 
       default:
         return Container();
