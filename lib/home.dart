@@ -16,13 +16,12 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
-    _loadPageBuilder();
     super.initState();
   }
 
-  Future<void> _loadPageBuilder() async {
+  Future<void> _loadPageBuilder(String url) async {
     try {
-      final pageBuilder = await _pageBuilderDatasource.getPageBuilder();
+      final pageBuilder = await _pageBuilderDatasource.getPageBuilder(url);
       _pageBuilderCompleter.complete(pageBuilder);
     } catch (e) {
       _pageBuilderCompleter.completeError(e);
@@ -31,6 +30,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as Map?;
+    _loadPageBuilder(args?['requestUrl'] ?? 'http://localhost:3000/home');
     return Scaffold(
       body: FutureBuilder<Widget>(
         future: _pageBuilderCompleter.future,
