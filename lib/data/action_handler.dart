@@ -39,6 +39,9 @@ class ActionHandler {
         break;
       case Action.navigation:
         log('Navigate to ${data['route']}');
+        Navigator.pushNamed(context, data['route'], arguments: {
+          'requestUrl': data['requestUrl'],
+        });
         break;
       default:
         log('Unknown action');
