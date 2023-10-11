@@ -14,4 +14,13 @@ class GridViewSerializer {
           : [],
     );
   }
+
+  static Widget skeleton(Map<String, dynamic> json) {
+    return GridViewComponentSkeleton(
+      columnCount: json['columnCount'],
+      minColumnCount: json['minColumnCount'] ?? 2,
+      cardScale: json['cardScale'] ?? 225.0,
+      content: PageBuilder.fromJson(json['content']),
+    );
+  }
 }

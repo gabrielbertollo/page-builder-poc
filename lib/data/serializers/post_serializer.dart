@@ -13,4 +13,11 @@ class PostSerializer {
       publishedAt: json['publishedAt'],
     );
   }
+
+  static Widget skeleton(Map<String, dynamic> json) {
+    return PostComponentSkeleton(
+      title: PageBuilder.fromJson(json['title']),
+      hasPublishedAt: json['hasPublishedAt'] ?? false,
+    );
+  }
 }

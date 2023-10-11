@@ -23,10 +23,14 @@ class PageBuilder {
         return ListViewSerializer.fromJson(json);
       case 'GridViewComponent':
         return GridViewSerializer.fromJson(json);
+      case 'GridViewSkeleton':
+        return GridViewSerializer.skeleton(json);
       case 'CardComponent':
         return CardSerializer.fromJson(json);
       case 'TextComponent':
         return TextSerializer.fromJson(json);
+      case 'TextSkeleton':
+        return TextSerializer.skeleton(json);
       case 'FormComponent':
         return FormSerializer.fromJson(json);
       case 'TextInputComponent':
@@ -41,6 +45,8 @@ class PageBuilder {
         return DrawerSerializer.fromJson(json);
       case 'PostComponent':
         return PostSerializer.fromJson(json);
+      case 'PostSkeleton':
+        return PostSerializer.skeleton(json);
 
       /// SECTION: Pages
       case 'DrawerPage':

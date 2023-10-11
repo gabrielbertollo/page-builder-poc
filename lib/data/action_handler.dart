@@ -41,6 +41,7 @@ class ActionHandler {
         log('Navigate to ${data['route']}');
         Navigator.pushNamed(context, data['route'], arguments: {
           'requestUrl': data['requestUrl'],
+          'skeleton': data['skeleton'],
         });
         break;
       default:

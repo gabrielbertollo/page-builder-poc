@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 
+import '../../widgets/text_component.dart';
+
 class TextSerializer {
   static Widget fromJson(Map<String, dynamic> json) {
-    return Text(
+    return TextComponent(
       json['text'],
-      style: TextStyle(
-        fontSize: json['fontSize'],
-      ),
+      fontSize: json['fontSize'],
+    );
+  }
+
+  static Widget skeleton(Map<String, dynamic> json) {
+    return TextComponentSkeleton(
+      characterLength: json['characterLength'] ?? 100,
+      fontSize: json['fontSize'] ?? 20,
     );
   }
 }

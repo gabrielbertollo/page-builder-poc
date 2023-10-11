@@ -31,7 +31,30 @@
                     "action": {
                         "type": "navigation",
                         "route": "/builder",
-                        "requestUrl": "http://localhost:3000/blog"
+                        "requestUrl": "http://localhost:3000/blog",
+                        "skeleton": {
+                            "type": "SearchablePage",
+                            "title": {
+                                "type": "TextSkeleton",
+                                "characterLength": 200,
+                                "fontSize": 20.0
+                            },
+                            "searchable": true,
+                            "body": {
+                                "type": "GridViewSkeleton",
+                                "cardScale": 350.0,
+                                "minColumnCount": 1,
+                                "content": {
+                                    "type": "PostSkeleton",
+                                    "hasPublishedAt": true,
+                                    "title": {
+                                        "type": "TextSkeleton",
+                                        "characterLength": 400,
+                                        "fontSize": 20.0
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 {
@@ -41,7 +64,7 @@
                     "action": {
                         "type": "modal",
                         "child": {
-                            "title":"Login necessário",
+                            "title": "Login necessário",
                             "description": "Para acessar essa funcionalidade é necessário estar logado"
                         }
                     }
@@ -52,69 +75,69 @@
     "blog": {
         "type": "SearchablePage",
         "title": {
-          "type": "TextComponent",
-          "text": "Página Inicial"
+            "type": "TextComponent",
+            "text": "Página Inicial"
         },
         "searchable": true,
         "body": {
-          "type": "GridViewComponent",
-          "cardScale": 350.0,
-          "minColumnCount": 1,
-          "children": [
-            {
-              "type": "PostComponent",
-              "title": {
-                "type": "TextComponent",
-                "text": "Post 1"
-              },
-              "imageUrl":
-                  "https://source.unsplash.com/600x300?purple,abstract&random=50",
-              "action": {
-                "type": "navigation",
-                "route": "/builder",
-                "requestUrl": "http://localhost:3000/home"
-              }
-            },
-            {
-              "type": "PostComponent",
-              "title": {
-                "type": "TextComponent",
-                "text": "Post 1"
-              },
-              "imageUrl":
-                  "https://source.unsplash.com/600x300?purple,abstract&random=80",
-              "action": {
-                "type": "navigation",
-                "route": "/media"
-              }
-            },
-            {
-              "type": "PostComponent",
-              "title": {
-                "type": "TextComponent",
-                "text": "Post 1"
-              },
-              "imageUrl":
-                  "https://source.unsplash.com/600x300?purple,abstract&random=96",
-              "action": {
-                "type": "navigation",
-                "route": "/media"
-              }
-            },
-            {
-              "type": "PostComponent",
-              "title": {
-                "type": "TextComponent",
-                "text": "Post 1"
-              },
-              "imageUrl":
-                  "https://source.unsplash.com/600x300?purple,abstract&random=32",
-              "action": {
-                "type": "navigation",
-                "route": "/media"
-              }
-            }
-          ]
+            "type": "GridViewComponent",
+            "cardScale": 350.0,
+            "minColumnCount": 1,
+            "children": [
+                {
+                    "type": "PostComponent",
+                    "title": {
+                        "type": "TextComponent",
+                        "text": "Post 1"
+                    },
+                    "publishedAt": "Two days ago",
+                    "imageUrl": "https://source.unsplash.com/600x300?purple,abstract&random=50",
+                    "action": {
+                        "type": "navigation",
+                        "route": "/builder",
+                        "requestUrl": "http://localhost:3000/home"
+                    }
+                },
+                {
+                    "type": "PostComponent",
+                    "title": {
+                        "type": "TextComponent",
+                        "text": "Post 1"
+                    },
+                    "publishedAt": "Two days ago",
+                    "imageUrl": "https://source.unsplash.com/600x300?purple,abstract&random=80",
+                    "action": {
+                        "type": "navigation",
+                        "route": "/media"
+                    }
+                },
+                {
+                    "type": "PostComponent",
+                    "title": {
+                        "type": "TextComponent",
+                        "text": "Post 1"
+                    },
+                    "publishedAt": "Two days ago",
+                    "imageUrl": "https://source.unsplash.com/600x300?purple,abstract&random=96",
+                    "action": {
+                        "type": "navigation",
+                        "route": "/media"
+                    }
+                },
+                {
+                    "type": "PostComponent",
+                    "title": {
+                        "type": "TextComponent",
+                        "text": "Post 1"
+                    },
+                    "publishedAt": "Two days ago",
+                    "imageUrl": "https://source.unsplash.com/600x300?purple,abstract&random=32",
+                    "action": {
+                        "type": "navigation",
+                        "route": "/media"
+                    }
+                }
+            ]
         }
     },
     "form": {

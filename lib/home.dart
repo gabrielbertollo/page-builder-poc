@@ -4,7 +4,14 @@ import 'package:flutter/material.dart';
 import 'data/datasources/page_builder_datasource.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  final String? requestUrl;
+  final Widget? skeleton;
+
+  const Home({
+    this.requestUrl,
+    this.skeleton,
+    super.key,
+  });
 
   @override
   State<Home> createState() => _HomeState();
@@ -16,6 +23,7 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
+    _loadPageBuilder(widget.requestUrl ?? 'http://localhost:3000/home');
     super.initState();
   }
 
@@ -30,8 +38,6 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as Map?;
-    _loadPageBuilder(args?['requestUrl'] ?? 'http://localhost:3000/home');
     return Scaffold(
       body: FutureBuilder<Widget>(
         future: _pageBuilderCompleter.future,
@@ -43,9 +49,10 @@ class _HomeState extends State<Home> {
               body: Center(child: Text(snapshot.error.toString())),
             );
           } else {
-            return const Scaffold(
-              body: Center(child: CircularProgressIndicator()),
-            );
+            return widget.skeleton ??
+                const Scaffold(
+                  body: Center(child: CircularProgressIndicator()),
+                );
           }
         },
       ),
