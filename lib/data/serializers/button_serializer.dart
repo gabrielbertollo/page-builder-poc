@@ -7,6 +7,7 @@ class ButtonSerializer {
     return ButtonComponent(
       label: json['label'],
       action: json['action'],
+      filled: json['filled'] ?? true,
     );
   }
 

@@ -96,9 +96,46 @@
                     "action": {
                         "type": "modal",
                         "child": {
-                            "title": "Login necessário",
-                            "description": "Para acessar essa funcionalidade é necessário estar logado"
+                            "title": {
+                                "type": "TextComponent",
+                                "text": "Login necessário"
+                            },
+                            "content": {
+                                "type": "TextComponent",
+                                "text": "Para acessar essa funcionalidade é necessário estar logado"
+                            },
+                            "actions": [
+                                {
+                                    "type": "ButtonComponent",
+                                    "label": "Cancelar",
+                                    "filled": false,
+                                    "action": {
+                                        "type": "navigation",
+                                        "route": "/builder",
+                                        "requestUrl": "http://localhost:3000/home"
+                                    }
+                                },
+                                {
+                                    "type": "ButtonComponent",
+                                    "label": "Login",
+                                    "action": {
+                                        "type": "navigation",
+                                        "route": "/builder",
+                                        "requestUrl": "http://localhost:3000/home"
+                                    }
+                                }
+                            ]
                         }
+                    }
+                },
+                {
+                    "type": "CardComponent",
+                    "title": "Betha Educação",
+                    "iconUrl": "https://cdn-icons-png.flaticon.com/512/2838/2838912.png",
+                    "action": {
+                        "type": "navigation",
+                        "route": "/builder",
+                        "requestUrl": "http://localhost:3000/betha"
                     }
                 }
             ]
@@ -211,6 +248,56 @@
                     "required": false
                 }
             ]
+        }
+    },
+    "betha": {
+        "type": "DrawerPage",
+        "title": {
+            "type": "TextComponent",
+            "text": "Betha Educação"
+        },
+        "body": {
+            "type": "ButtonComponent",
+            "label": "Adicionar aluno",
+            "action": {
+                "type": "modal",
+                "child": {
+                    "title": {
+                        "type": "TextComponent",
+                        "text": "Adicionar aluno"
+                    },
+                    "content": {
+                        "type": "FormComponent",
+                        "children": [
+                            {
+                                "type": "TextInputComponent",
+                                "label": "Código do aluno",
+                                "required": true
+                            }
+                        ],
+                        "actions": [
+                            {
+                                "type": "ButtonComponent",
+                                "label": "Adicionar",
+                                "action": {
+                                    "type": "navigation",
+                                    "route": "/builder",
+                                    "requestUrl": "http://localhost:3000/home"
+                                }
+                            },
+                            {
+                                "type": "ButtonComponent",
+                                "label": "Cancelar",
+                                "action": {
+                                    "type": "navigation",
+                                    "route": "/builder",
+                                    "requestUrl": "http://localhost:3000/home"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
         }
     }
 }
