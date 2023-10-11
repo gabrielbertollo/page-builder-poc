@@ -25,8 +25,8 @@ class FormComponent extends StatefulWidget {
 class _FormComponentState extends State<FormComponent> {
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.topCenter,
+    return SizedBox(
+      width: double.infinity,
       child: Form(
         key: widget.formKey,
         child: SingleChildScrollView(
@@ -46,7 +46,7 @@ class _FormComponentState extends State<FormComponent> {
                         if (element is FileInputComponent) {
                           GlobalKey<FormFieldState> key =
                               element.inputKey as GlobalKey<FormFieldState>;
-                          log(key.currentState?.value);
+                          log(key.currentState?.value.toString() ?? '');
                         } else if (element is TextInputComponent) {
                           GlobalKey<FormFieldState> key =
                               element.inputKey as GlobalKey<FormFieldState>;
