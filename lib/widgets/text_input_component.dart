@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'loading_shimmer.dart';
+
 class TextInputComponent extends StatefulWidget {
   final String label;
   final String? initialValue;
@@ -47,6 +49,31 @@ class _TextInputComponentState extends State<TextInputComponent> {
           decoration: InputDecoration(
             labelText: widget.label,
             filled: true,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class TextInputSkeleton extends StatelessWidget {
+  const TextInputSkeleton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return LoadingShimmer(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            maxWidth: 600,
+          ),
+          child: TextFormField(
+            decoration: const InputDecoration(
+              filled: true,
+            ),
           ),
         ),
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../data/action_handler.dart';
+import 'loading_shimmer.dart';
 
 class ButtonComponent extends StatelessWidget {
   final String label;
@@ -17,6 +18,29 @@ class ButtonComponent extends StatelessWidget {
     return FilledButton(
       onPressed: () => ActionHandler.handleAction(action, context),
       child: Text(label),
+    );
+  }
+}
+
+class ButtonSkeleton extends StatelessWidget {
+  final double characterLength;
+
+  const ButtonSkeleton({
+    this.characterLength = 100,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return LoadingShimmer(
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(50.0),
+        ),
+        width: characterLength + 16,
+        height: 30,
+      ),
     );
   }
 }

@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
+import 'button_component.dart';
 import 'file_input_component.dart';
 import 'text_input_component.dart';
 
@@ -43,11 +46,11 @@ class _FormComponentState extends State<FormComponent> {
                         if (element is FileInputComponent) {
                           GlobalKey<FormFieldState> key =
                               element.inputKey as GlobalKey<FormFieldState>;
-                          print(key.currentState?.value);
+                          log(key.currentState?.value);
                         } else if (element is TextInputComponent) {
                           GlobalKey<FormFieldState> key =
                               element.inputKey as GlobalKey<FormFieldState>;
-                          print(key.currentState?.value);
+                          log(key.currentState?.value);
                         }
                       }
                     },
@@ -57,6 +60,39 @@ class _FormComponentState extends State<FormComponent> {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class FormSkeleton extends StatelessWidget {
+  final List<Widget> children;
+
+  const FormSkeleton({
+    required this.children,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.topCenter,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            ...children,
+            const SizedBox(height: 16),
+            ConstrainedBox(
+              constraints: const BoxConstraints(
+                maxWidth: 600,
+              ),
+              child: const Align(
+                alignment: Alignment.bottomRight,
+                child: ButtonSkeleton(),
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -11,4 +11,8 @@ class TextInputSerializer {
       isRequired: json['required'],
     );
   }
+
+  static Widget skeleton(Map<String, dynamic> json) {
+    return const TextInputSkeleton();
+  }
 }

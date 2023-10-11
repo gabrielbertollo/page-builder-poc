@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'button_component.dart';
+
 class FileInputComponent extends FormField<List<String>?> {
   final GlobalKey<FormFieldState>? inputKey;
 
@@ -84,5 +86,42 @@ class _FileInputComponentState extends FormFieldState<List<String>?> {
   void initState() {
     setValue(_widget.initialValue);
     super.initState();
+  }
+}
+
+class FileInputSkeleton extends StatelessWidget {
+  const FileInputSkeleton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(
+          maxWidth: 600,
+        ),
+        child: const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Flexible(
+                  fit: FlexFit.tight,
+                  child: Wrap(
+                    spacing: 8.0,
+                    runSpacing: 8.0,
+                    children: [
+                      ButtonSkeleton(
+                        characterLength: 125,
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

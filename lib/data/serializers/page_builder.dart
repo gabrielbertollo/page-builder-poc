@@ -33,12 +33,20 @@ class PageBuilder {
         return TextSerializer.skeleton(json);
       case 'FormComponent':
         return FormSerializer.fromJson(json);
+      case 'FormSkeleton':
+        return FormSerializer.skeleton(json);
       case 'TextInputComponent':
         return TextInputSerializer.fromJson(json);
+      case 'TextInputSkeleton':
+        return TextInputSerializer.skeleton(json);
       case 'FileInputComponent':
         return FileInputSerializer.fromJson(json);
+      case 'FileInputSkeleton':
+        return FileInputSerializer.skeleton(json);
       case 'ButtonComponent':
         return ButtonSerializer.fromJson(json);
+      case 'ButtonSkeleton':
+        return ButtonSerializer.skeleton(json);
       case 'SpacerComponent':
         return SpacerSerializer.fromJson(json);
       case 'DrawerComponent':

@@ -9,4 +9,10 @@ class ButtonSerializer {
       action: json['action'],
     );
   }
+
+  static Widget skeleton(Map<String, dynamic> json) {
+    return ButtonSkeleton(
+      characterLength: json['characterLength'] ?? 100,
+    );
+  }
 }

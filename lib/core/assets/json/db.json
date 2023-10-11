@@ -21,7 +21,39 @@
                     "action": {
                         "type": "navigation",
                         "route": "/builder",
-                        "requestUrl": "http://localhost:3000/form"
+                        "requestUrl": "http://localhost:3000/form",
+                        "skeleton": {
+                            "type": "DrawerPage",
+                            "title": {
+                                "type": "TextSkeleton",
+                                "characterLength": 200,
+                                "fontSize": 20.0
+                            },
+                            "body": {
+                                "type": "FormSkeleton",
+                                "children": [
+                                    {
+                                        "type": "TextSkeleton",
+                                        "characterLength": 400
+                                    },
+                                    {
+                                        "type": "TextInputSkeleton"
+                                    },
+                                    {
+                                        "type": "TextInputSkeleton"
+                                    },
+                                    {
+                                        "type": "TextInputSkeleton"
+                                    },
+                                    {
+                                        "type": "TextInputSkeleton"
+                                    },
+                                    {
+                                        "type": "FileInputSkeleton"
+                                    }
+                                ]
+                            }
+                        }
                     }
                 },
                 {

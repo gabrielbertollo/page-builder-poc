@@ -14,4 +14,13 @@ class FormSerializer {
           : [],
     );
   }
+
+  static Widget skeleton(Map<String, dynamic> json) {
+    return FormSkeleton(
+      children: json['children'] != null
+          ? List<Widget>.from(
+              json['children'].map((child) => PageBuilder.fromJson(child)))
+          : [],
+    );
+  }
 }
