@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
-import '../widgets/modal_component.dart';
+import 'serializers/modal_serializer.dart';
 
 enum Action {
   modal,
@@ -30,10 +30,7 @@ class ActionHandler {
         showDialog(
           context: context,
           builder: (context) {
-            return ModalComponent(
-              title: child['title'],
-              description: child['description'],
-            );
+            return ModalSerializer.fromJson(child);
           },
         );
         break;
