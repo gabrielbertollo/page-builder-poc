@@ -6,15 +6,23 @@ import 'loading_shimmer.dart';
 class ButtonComponent extends StatelessWidget {
   final String label;
   final Map<String, dynamic> action;
+  final bool filled;
 
   const ButtonComponent({
     required this.label,
     required this.action,
+    this.filled = true,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
+    if (!filled) {
+      return TextButton(
+        onPressed: () => ActionHandler.handleAction(action, context),
+        child: Text(label),
+      );
+    }
     return FilledButton(
       onPressed: () => ActionHandler.handleAction(action, context),
       child: Text(label),
