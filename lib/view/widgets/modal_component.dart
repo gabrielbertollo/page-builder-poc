@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 
+import 'form_component.dart';
+
 class ModalComponent extends StatelessWidget {
-  final Widget title;
-  final Widget? content;
+  final String title;
+  final List<Widget> children;
+  final FormComponent? form;
   final List<Widget>? actions;
 
   const ModalComponent({
     required this.title,
-    this.content,
+    this.children = const [],
+    this.form,
     this.actions,
     super.key,
   });
@@ -15,8 +19,8 @@ class ModalComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: title,
-      content: content,
+      title: Text(title),
+      content: form ?? Column(children: children),
       actions: actions,
     );
   }

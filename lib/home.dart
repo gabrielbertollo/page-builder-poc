@@ -1,9 +1,51 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'data/repository/page_builder_repository.dart';
 
-class Home extends StatefulWidget {
+class HomeProvider extends ChangeNotifier {
+  final String requestUrl;
+
+  final PageBuilderRepository _pageBuilderRepository = PageBuilderRepository();
+
+  final ValueNotifier<bool> _isLoading = ValueNotifier<bool>(true);
+  final ValueNotifier<bool> _isLoaded = ValueNotifier<bool>(false);
+  final ValueNotifier<String?> _error = ValueNotifier<String?>(null);
+  final ValueNotifier<Widget> _child = ValueNotifier<Widget>(Container());
+
+  HomeProvider({
+    required this.requestUrl,
+  }) {
+    loadPageBuilder(requestUrl);
+  }
+
+  ValueNotifier<bool> get isLoading => _isLoading;
+  ValueNotifier<bool> get isLoaded => _isLoaded;
+  ValueNotifier<String?> get error => _error;
+  ValueNotifier<Widget> get child => _child;
+
+  Future<void> loadPageBuilder(String url) async {
+    try {
+      _child.value = await _pageBuilderRepository.getPageBuilder(url);
+    } catch (e) {
+      _error.value = e.toString();
+    } finally {
+      _isLoading.value = false;
+      _isLoaded.value = true;
+      notifyListeners();
+    }
+  }
+
+  void refresh() {
+    _isLoading.value = true;
+    _isLoaded.value = false;
+    notifyListeners();
+    loadPageBuilder(requestUrl);
+  }
+}
+
+class Home extends StatelessWidget {
   final String? requestUrl;
   final Widget? skeleton;
 
@@ -14,47 +56,28 @@ class Home extends StatefulWidget {
   });
 
   @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  final PageBuilderDatasource _pageBuilderDatasource = PageBuilderDatasource();
-  final Completer<Widget> _pageBuilderCompleter = Completer<Widget>();
-
-  @override
-  void initState() {
-    _loadPageBuilder(widget.requestUrl ?? 'http://localhost:3000/home');
-    super.initState();
-  }
-
-  Future<void> _loadPageBuilder(String url) async {
-    try {
-      final pageBuilder = await _pageBuilderDatasource.getPageBuilder(url);
-      _pageBuilderCompleter.complete(pageBuilder);
-    } catch (e) {
-      _pageBuilderCompleter.completeError(e);
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FutureBuilder<Widget>(
-        future: _pageBuilderCompleter.future,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return snapshot.data!;
-          } else if (snapshot.hasError) {
-            return Scaffold(
-              body: Center(child: Text(snapshot.error.toString())),
-            );
-          } else {
-            return widget.skeleton ??
-                const Scaffold(
-                  body: Center(child: CircularProgressIndicator()),
-                );
-          }
-        },
+      body: ChangeNotifierProvider(
+        create: (context) => HomeProvider(
+          requestUrl: requestUrl ?? 'http://localhost:3000/home',
+        ),
+        child: Consumer<HomeProvider>(
+          builder: (context, provider, child) {
+            if (provider.isLoading.value) {
+              return skeleton ??
+                  const Scaffold(
+                    body: Center(child: CircularProgressIndicator()),
+                  );
+            } else if (provider.error.value != null) {
+              return Scaffold(
+                body: Center(child: Text(provider.error.value!)),
+              );
+            } else {
+              return provider.child.value;
+            }
+          },
+        ),
       ),
     );
   }

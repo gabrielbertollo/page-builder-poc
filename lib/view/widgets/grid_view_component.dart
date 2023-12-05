@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import '../core/helpers/screen_size_extension.dart';
+import '../../core/helpers/screen_size_extension.dart';
 
 class GridViewComponent extends StatelessWidget {
   final List<Widget> children;

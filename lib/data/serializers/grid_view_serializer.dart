@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'page_builder.dart';
-import '../../widgets/grid_view_component.dart';
+import '../../view/widgets/grid_view_component.dart';
 
 class GridViewSerializer {
   static Widget fromJson(Map<String, dynamic> json) {

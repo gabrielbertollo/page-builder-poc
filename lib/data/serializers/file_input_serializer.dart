@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/file_input_component.dart';
+import '../../view/widgets/file_input_component.dart';
 
 class FileInputSerializer {
   static Widget fromJson(Map<String, dynamic> json) {

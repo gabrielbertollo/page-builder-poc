@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'button_serializer.dart';
-import 'card_serializer.dart';
 import 'drawer_serializer.dart';
 import 'file_input_serializer.dart';
+import 'filled_button_serializer.dart';
 import 'form_serializer.dart';
 import 'grid_view_serializer.dart';
 import 'list_view_serializer.dart';
+import 'modal_serializer.dart';
 import 'pages/drawer_page_serializer.dart';
-import 'pages/searchable_page_serializer.dart';
-import 'post_serializer.dart';
-import 'spacer_serializer.dart';
 import 'text_input_serializer.dart';
 import 'text_serializer.dart';
 
@@ -25,8 +22,6 @@ class PageBuilder {
         return GridViewSerializer.fromJson(json);
       case 'GridViewSkeleton':
         return GridViewSerializer.skeleton(json);
-      case 'CardComponent':
-        return CardSerializer.fromJson(json);
       case 'TextComponent':
         return TextSerializer.fromJson(json);
       case 'TextSkeleton':
@@ -43,24 +38,18 @@ class PageBuilder {
         return FileInputSerializer.fromJson(json);
       case 'FileInputSkeleton':
         return FileInputSerializer.skeleton(json);
-      case 'ButtonComponent':
-        return ButtonSerializer.fromJson(json);
-      case 'ButtonSkeleton':
-        return ButtonSerializer.skeleton(json);
-      case 'SpacerComponent':
-        return SpacerSerializer.fromJson(json);
       case 'DrawerComponent':
         return DrawerSerializer.fromJson(json);
-      case 'PostComponent':
-        return PostSerializer.fromJson(json);
-      case 'PostSkeleton':
-        return PostSerializer.skeleton(json);
+      case 'ModalComponent':
+        return ModalSerializer.fromJson(json);
 
       /// SECTION: Pages
       case 'DrawerPage':
         return DrawerPageSerializer.fromJson(json);
-      case 'SearchablePage':
-        return SearchablePageSerializer.fromJson(json);
+
+      /// SECTION: Buttons
+      case 'FilledButtonComponent':
+        return FilledButtonSerializer.fromJson(json);
 
       default:
         return Container();

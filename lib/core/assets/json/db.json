@@ -1,10 +1,7 @@
 {
     "home": {
         "type": "DrawerPage",
-        "title": {
-            "type": "TextComponent",
-            "text": "Página Inicial"
-        },
+        "title": "Página Inicial",
         "drawer": {
             "type": "DrawerComponent"
         },
@@ -12,292 +9,137 @@
             "type": "GridViewComponent",
             "children": [
                 {
-                    "type": "CardComponent",
-                    "title": "Ouvidoria",
-                    "subtitle": "Algum problema?",
-                    "iconUrl": "https://cdn-icons-png.flaticon.com/512/2838/2838912.png",
-                    "verticalSize": 1,
-                    "horizontalAlignment": "start",
-                    "action": {
-                        "type": "navigation",
-                        "route": "/builder",
-                        "requestUrl": "http://localhost:3000/form",
-                        "skeleton": {
-                            "type": "DrawerPage",
-                            "title": {
-                                "type": "TextSkeleton",
-                                "characterLength": 200,
-                                "fontSize": 20.0
-                            },
-                            "body": {
-                                "type": "FormSkeleton",
-                                "children": [
-                                    {
-                                        "type": "TextSkeleton",
-                                        "characterLength": 400
-                                    },
-                                    {
-                                        "type": "TextInputSkeleton"
-                                    },
-                                    {
-                                        "type": "TextInputSkeleton"
-                                    },
-                                    {
-                                        "type": "TextInputSkeleton"
-                                    },
-                                    {
-                                        "type": "TextInputSkeleton"
-                                    },
-                                    {
-                                        "type": "FileInputSkeleton"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                },
-                {
-                    "type": "CardComponent",
-                    "title": "Blog",
-                    "iconUrl": "https://cdn-icons-png.flaticon.com/512/2838/2838912.png",
-                    "action": {
-                        "type": "navigation",
-                        "route": "/builder",
-                        "requestUrl": "http://localhost:3000/blog",
-                        "skeleton": {
-                            "type": "SearchablePage",
-                            "title": {
-                                "type": "TextSkeleton",
-                                "characterLength": 200,
-                                "fontSize": 20.0
-                            },
-                            "searchable": true,
-                            "body": {
-                                "type": "GridViewSkeleton",
-                                "cardScale": 350.0,
-                                "minColumnCount": 1,
-                                "content": {
-                                    "type": "PostSkeleton",
-                                    "hasPublishedAt": true,
-                                    "title": {
-                                        "type": "TextSkeleton",
-                                        "characterLength": 400,
-                                        "fontSize": 20.0
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                {
-                    "type": "CardComponent",
-                    "title": "Conheça a Cidade",
-                    "iconUrl": "https://cdn-icons-png.flaticon.com/512/2838/2838912.png",
+                    "type": "FilledButtonComponent",
+                    "label": "Adicionar Usuário",
                     "action": {
                         "type": "modal",
-                        "child": {
-                            "title": {
-                                "type": "TextComponent",
-                                "text": "Login necessário"
-                            },
-                            "content": {
-                                "type": "TextComponent",
-                                "text": "Para acessar essa funcionalidade é necessário estar logado"
-                            },
-                            "actions": [
-                                {
-                                    "type": "ButtonComponent",
-                                    "label": "Cancelar",
-                                    "filled": false,
-                                    "action": {
-                                        "type": "navigation",
-                                        "route": "/builder",
-                                        "requestUrl": "http://localhost:3000/home"
-                                    }
-                                },
-                                {
-                                    "type": "ButtonComponent",
-                                    "label": "Login",
-                                    "action": {
-                                        "type": "navigation",
-                                        "route": "/builder",
-                                        "requestUrl": "http://localhost:3000/home"
-                                    }
-                                }
-                            ]
-                        }
+                        "modal": "add-user"
                     }
                 },
                 {
-                    "type": "CardComponent",
-                    "title": "Betha Educação",
-                    "iconUrl": "https://cdn-icons-png.flaticon.com/512/2838/2838912.png",
+                    "type": "FilledButtonComponent",
+                    "label": "Sobre nós",
                     "action": {
                         "type": "navigation",
                         "route": "/builder",
-                        "requestUrl": "http://localhost:3000/betha"
+                        "requestUrl": "http://localhost:3000/about"
+                    }
+                },
+                {
+                    "type": "FilledButtonComponent",
+                    "label": "Recarregar Página",
+                    "action": {
+                        "type": "refresh"
                     }
                 }
             ]
-        }
-    },
-    "blog": {
-        "type": "SearchablePage",
-        "title": {
-            "type": "TextComponent",
-            "text": "Página Inicial"
         },
-        "searchable": true,
-        "body": {
-            "type": "GridViewComponent",
-            "cardScale": 350.0,
-            "minColumnCount": 1,
-            "children": [
-                {
-                    "type": "PostComponent",
-                    "title": {
-                        "type": "TextComponent",
-                        "text": "Post 1"
-                    },
-                    "publishedAt": "Two days ago",
-                    "imageUrl": "https://source.unsplash.com/600x300?purple,abstract&random=50",
-                    "action": {
-                        "type": "navigation",
-                        "route": "/builder",
-                        "requestUrl": "http://localhost:3000/home"
-                    }
-                },
-                {
-                    "type": "PostComponent",
-                    "title": {
-                        "type": "TextComponent",
-                        "text": "Post 1"
-                    },
-                    "publishedAt": "Two days ago",
-                    "imageUrl": "https://source.unsplash.com/600x300?purple,abstract&random=80",
-                    "action": {
-                        "type": "navigation",
-                        "route": "/media"
-                    }
-                },
-                {
-                    "type": "PostComponent",
-                    "title": {
-                        "type": "TextComponent",
-                        "text": "Post 1"
-                    },
-                    "publishedAt": "Two days ago",
-                    "imageUrl": "https://source.unsplash.com/600x300?purple,abstract&random=96",
-                    "action": {
-                        "type": "navigation",
-                        "route": "/media"
-                    }
-                },
-                {
-                    "type": "PostComponent",
-                    "title": {
-                        "type": "TextComponent",
-                        "text": "Post 1"
-                    },
-                    "publishedAt": "Two days ago",
-                    "imageUrl": "https://source.unsplash.com/600x300?purple,abstract&random=32",
-                    "action": {
-                        "type": "navigation",
-                        "route": "/media"
-                    }
-                }
-            ]
-        }
-    },
-    "form": {
-        "type": "DrawerPage",
-        "title": {
-            "type": "TextComponent",
-            "text": "Ouvidoria"
-        },
-        "body": {
-            "type": "FormComponent",
-            "children": [
-                {
-                    "type": "TextComponent",
-                    "text": "Preencha o formulário abaixo para enviar sua mensagem"
-                },
-                {
-                    "type": "TextInputComponent",
-                    "label": "Nome",
-                    "required": true
-                },
-                {
-                    "type": "TextInputComponent",
-                    "label": "Email",
-                    "required": true
-                },
-                {
-                    "type": "TextInputComponent",
-                    "label": "Telefone",
-                    "required": true
-                },
-                {
-                    "type": "TextInputComponent",
-                    "label": "Mensagem",
-                    "required": true
-                },
-                {
-                    "type": "FileInputComponent",
-                    "label": "Anexo",
-                    "required": false
-                }
-            ]
-        }
-    },
-    "betha": {
-        "type": "DrawerPage",
-        "title": {
-            "type": "TextComponent",
-            "text": "Betha Educação"
-        },
-        "body": {
-            "type": "ButtonComponent",
-            "label": "Adicionar aluno",
-            "action": {
-                "type": "modal",
-                "child": {
-                    "title": {
-                        "type": "TextComponent",
-                        "text": "Adicionar aluno"
-                    },
-                    "content": {
+        "modals": [
+            {
+                "add-user": {
+                    "type": "ModalComponent",
+                    "title": "Adicionar Usuário",
+                    "form": {
+                        "id": "add-user",
                         "type": "FormComponent",
+                        "action": "https://www.google.com.br",
+                        "method": "POST",
                         "children": [
                             {
                                 "type": "TextInputComponent",
-                                "label": "Código do aluno",
+                                "label": "Nome",
                                 "required": true
-                            }
-                        ],
-                        "actions": [
-                            {
-                                "type": "ButtonComponent",
-                                "label": "Adicionar",
-                                "action": {
-                                    "type": "navigation",
-                                    "route": "/builder",
-                                    "requestUrl": "http://localhost:3000/home"
-                                }
                             },
                             {
-                                "type": "ButtonComponent",
-                                "label": "Cancelar",
-                                "action": {
-                                    "type": "navigation",
-                                    "route": "/builder",
-                                    "requestUrl": "http://localhost:3000/home"
-                                }
+                                "type": "TextInputComponent",
+                                "label": "Email",
+                                "required": true
                             }
                         ]
-                    }
+                    },
+                    "actions": [
+                        {
+                            "type": "FilledButtonComponent",
+                            "label": "Cancelar",
+                            "action": {
+                                "type": "cancel"
+                            }
+                        },
+                        {
+                            "type": "FilledButtonComponent",
+                            "label": "Adicionar",
+                            "action": {
+                                "type": "submit",
+                                "form": "add-user"
+                            }
+                        }
+                    ]
                 }
             }
-        }
+        ]
+    },
+    "about": {
+        "type": "DrawerPage",
+        "title": "Sobre",
+        "body": {
+            "type": "GridViewComponent",
+            "children": [
+                {
+                    "type": "FilledButtonComponent",
+                    "label": "Adicionar texto",
+                    "action": {
+                        "type": "modal",
+                        "modal": "add-text"
+                    }
+                },
+                {
+                    "type": "FilledButtonComponent",
+                    "label": "Voltar",
+                    "action": {
+                        "type": "navigation",
+                        "route": "/",
+                        "requestUrl": "http://localhost:3000/"
+                    }
+                }
+            ]
+        },
+        "modals": [
+            {
+                "add-text": {
+                    "type": "ModalComponent",
+                    "title": "Adicionar Texto",
+                    "form": {
+                        "id": "add-text",
+                        "type": "FormComponent",
+                        "action": "https://www.google.com.br",
+                        "method": "POST",
+                        "children": [
+                            {
+                                "type": "TextInputComponent",
+                                "label": "Texto",
+                                "required": true
+                            }
+                        ]
+                    },
+                    "actions": [
+                        {
+                            "type": "FilledButtonComponent",
+                            "label": "Cancelar",
+                            "action": {
+                                "type": "cancel"
+                            }
+                        },
+                        {
+                            "type": "FilledButtonComponent",
+                            "label": "Adicionar",
+                            "action": {
+                                "type": "submit",
+                                "form": "add-text"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
     }
 }

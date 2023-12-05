@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'page_builder.dart';
-import '../../widgets/list_view_component.dart';
+import '../../view/widgets/list_view_component.dart';
 
 class ListViewSerializer {
   static Widget fromJson(Map<String, dynamic> json) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../core/helpers/material_theme_extension.dart';
+import '../../core/helpers/material_theme_extension.dart';
 import 'loading_shimmer.dart';
 
 class TextComponent extends StatelessWidget {

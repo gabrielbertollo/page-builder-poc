@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/drawer_component.dart';
+import '../../view/widgets/drawer_component.dart';
 
 class DrawerSerializer {
   static Widget fromJson(Map<String, dynamic> json) {

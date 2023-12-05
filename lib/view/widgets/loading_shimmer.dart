@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../core/helpers/material_theme_extension.dart';
+import '../../core/helpers/material_theme_extension.dart';
 
 class LoadingShimmer extends StatelessWidget {
   final Widget child;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/text_input_component.dart';
+import '../../view/widgets/text_input_component.dart';
 
 class TextInputSerializer {
   static Widget fromJson(Map<String, dynamic> json) {

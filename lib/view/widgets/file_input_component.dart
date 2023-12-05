@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'button_component.dart';
-
 class FileInputComponent extends FormField<List<String>?> {
   final GlobalKey<FormFieldState>? inputKey;
 
@@ -105,18 +103,18 @@ class FileInputSkeleton extends StatelessWidget {
           children: [
             Row(
               children: [
-                Flexible(
-                  fit: FlexFit.tight,
-                  child: Wrap(
-                    spacing: 8.0,
-                    runSpacing: 8.0,
-                    children: [
-                      ButtonSkeleton(
-                        characterLength: 125,
-                      )
-                    ],
-                  ),
-                ),
+                // Flexible(
+                //   fit: FlexFit.tight,
+                //   child: Wrap(
+                //     spacing: 8.0,
+                //     runSpacing: 8.0,
+                //     children: [
+                //       ButtonSkeleton(
+                //         characterLength: 125,
+                //       )
+                //     ],
+                //   ),
+                // ),
               ],
             ),
           ],

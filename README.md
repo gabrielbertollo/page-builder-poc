@@ -26,3 +26,12 @@ json-server --watch core/assets/db.json
 ```
 
 After that, you can run the application.
+
+### The dependencies management
+
+This project uses a mix of two approaches to manage the dependencies:
+Provider and GetIt.
+
+The Provider package is used for passing the dependencies down the widget tree, using the context to access them. This is the approach that best suited the navigation between pages, since the GetIt package does not provide a way to access the context.
+
+The GetIt package is used for everything else related to the dependencies management. The objects are registered in the build method of components that make use of them and can then be accessed anywhere in the application, whithout the need of passing them down the widget tree and using the context to access them.
