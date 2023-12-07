@@ -7,7 +7,7 @@ class FilledButtonSerializer {
   static Widget fromJson(Map<String, dynamic> json) {
     return FilledButtonComponent(
       label: json['label'],
-      icon: json['ícon'],
+      icon: json['icon'],
       tonal: json['tonal'] ?? false,
       action: json['action'] != null
           ? ActionSerializer.fromJson(json['action'])
