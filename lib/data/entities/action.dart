@@ -20,7 +20,10 @@ class ModalAction implements Action {
     showDialog(
       context: context!,
       builder: (_) {
-        return context.read<PageProvider>().modals![modalName!]!;
+        return ChangeNotifierProvider.value(
+          value: context.read<HomeProvider>(),
+          child: context.read<PageProvider>().modals![modalName!]!,
+        );
       },
     );
   }
@@ -46,7 +49,7 @@ class NavigationAction implements Action {
 class CancelAction implements Action {
   @override
   void handleInteraction({BuildContext? context}) {
-    Navigator.pop(context!);
+    Navigator.maybePop(context!);
   }
 }
 
@@ -63,7 +66,17 @@ class SubmitAction implements Action {
   SubmitAction({this.formId});
 
   @override
-  void handleInteraction({BuildContext? context}) {
-    GetIt.I.get<FormProvider>(instanceName: formId).submit();
+  void handleInteraction({
+    BuildContext? context,
+    ValueNotifier<bool>? notifier,
+    Function? onSuccess,
+  }) async {
+    await GetIt.I
+        .get<FormProvider>(instanceName: formId)
+        .submit(notifier: notifier);
+
+    if (onSuccess != null) {
+      onSuccess();
+    }
   }
 }
