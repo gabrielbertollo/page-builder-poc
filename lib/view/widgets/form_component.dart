@@ -23,10 +23,13 @@ class FormProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> submit() async {
+  Future<void> submit({ValueNotifier<bool>? notifier}) async {
+    if (notifier != null) notifier.value = true;
+
     formKey.currentState?.save();
 
-    await Future.delayed(const Duration(milliseconds: 500));
+    await Future.delayed(const Duration(milliseconds: 800));
+
     for (final field in fields) {
       if (field is FileInputComponent) {
         GlobalKey<FormFieldState> key =
@@ -38,6 +41,8 @@ class FormProvider extends ChangeNotifier {
         log(key.currentState?.value.toString() ?? '');
       }
     }
+
+    if (notifier != null) notifier.value = false;
 
     /// TODO submit form with url and method
     /// if (widget.method == 'POST') {
