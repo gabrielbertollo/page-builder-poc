@@ -1,145 +1,2233 @@
 {
     "home": {
-        "type": "DrawerPage",
+        "type": "Page",
+        "layout": "grid",
         "title": "Página Inicial",
-        "drawer": {
-            "type": "DrawerComponent"
-        },
-        "body": {
-            "type": "GridViewComponent",
-            "children": [
-                {
-                    "type": "FilledButtonComponent",
-                    "label": "Adicionar Usuário",
-                    "action": {
-                        "type": "modal",
-                        "modal": "add-user"
-                    }
-                },
-                {
-                    "type": "FilledButtonComponent",
-                    "label": "Sobre nós",
-                    "action": {
-                        "type": "navigation",
-                        "route": "/builder",
-                        "requestUrl": "http://localhost:3000/about"
-                    }
-                },
-                {
-                    "type": "FilledButtonComponent",
-                    "label": "Recarregar Página",
-                    "action": {
-                        "type": "refresh"
-                    }
-                }
-            ]
-        },
-        "modals": [
+        "apiUrl": "http://localhost:3000/home",
+        "drawerItems": [],
+        "heading": "John Doe",
+        "subheading": "Como podemos ajudar você hoje?",
+        "children": [
             {
-                "add-user": {
-                    "type": "ModalComponent",
-                    "title": "Adicionar Usuário",
-                    "form": {
-                        "id": "add-user",
-                        "type": "FormComponent",
-                        "action": "https://www.google.com.br",
-                        "method": "POST",
-                        "children": [
+                "type": "CardButtonComponent",
+                "title": null,
+                "subtitle": null,
+                "icon": null,
+                "action": {
+                    "type": "NavigationAction",
+                    "url": "piedpiper:///blog"
+                },
+                "backgroundImageUrl": null,
+                "color": null,
+                "disabled": false,
+                "fullWidth": true,
+                "horizontalAlignment": "center",
+                "verticalAlignment": "center",
+                "horizontalSize": 1,
+                "verticalSize": 1.0,
+                "alt": "Teste"
+            },
+            {
+                "type": "CardButtonComponent",
+                "title": {
+                    "type": "TextComponent",
+                    "text": "Notícias",
+                    "alignment": "start",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1.1
+                },
+                "subtitle": {
+                    "type": "TextComponent",
+                    "text": "Confira as últimas notícias da cidade",
+                    "alignment": "center",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1.1
+                },
+                "icon": null,
+                "action": {
+                    "type": "NavigationAction",
+                    "url": "piedpiper:///blog"
+                },
+                "backgroundImageUrl": null,
+                "color": null,
+                "disabled": false,
+                "fullWidth": true,
+                "horizontalAlignment": "center",
+                "verticalAlignment": "center",
+                "horizontalSize": 1,
+                "verticalSize": 1.0
+            },
+            {
+                "type": "CardButtonComponent",
+                "title": {
+                    "type": "TextComponent",
+                    "text": "Formulário",
+                    "alignment": "start",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1.1
+                },
+                "subtitle": {
+                    "type": "TextComponent",
+                    "text": "Preencha o formulário a seguir",
+                    "alignment": "start",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1.1
+                },
+                "icon": null,
+                "action": {
+                    "type": "NavigationAction",
+                    "url": "piedpiper:///form"
+                },
+                "backgroundImageUrl": null,
+                "color": null,
+                "disabled": false,
+                "fullWidth": false,
+                "horizontalAlignment": "start",
+                "verticalAlignment": "center",
+                "horizontalSize": 1,
+                "verticalSize": 2.0
+            },
+            {
+                "type": "CardButtonComponent",
+                "title": {
+                    "type": "TextComponent",
+                    "text": "Estações Pluviométricas",
+                    "alignment": "center",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1.1
+                },
+                "subtitle": {
+                    "type": "TextComponent",
+                    "text": "Acompanhe o nível de chuva na cidade",
+                    "alignment": "center",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1.1
+                },
+                "icon": null,
+                "action": {
+                    "type": "BuilderNavigationAction",
+                    "page": {
+                        "type": "Page",
+                        "layout": "list",
+                        "title": "Estações pluviométricas",
+                        "apiUrl": "http://localhost:3000/pluviometric_stations",
+                        "skeleton": [
                             {
-                                "type": "TextInputComponent",
-                                "label": "Nome",
-                                "required": true
+                                "type": "TextSkeleton",
+                                "count": 2
                             },
                             {
-                                "type": "TextInputComponent",
-                                "label": "Email",
-                                "required": true
+                                "type": "ListItemSkeleton",
+                                "count": 5
                             }
                         ]
-                    },
-                    "actions": [
-                        {
-                            "type": "FilledButtonComponent",
-                            "label": "Cancelar",
-                            "action": {
-                                "type": "cancel"
+                    }
+                },
+                "backgroundImageUrl": null,
+                "color": null,
+                "disabled": false,
+                "fullWidth": false,
+                "horizontalAlignment": "center",
+                "verticalAlignment": "center",
+                "horizontalSize": 1,
+                "verticalSize": 1.0
+            },
+            {
+                "type": "CardButtonComponent",
+                "title": {
+                    "type": "TextComponent",
+                    "text": "Galeria",
+                    "alignment": "start",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1.1
+                },
+                "subtitle": {
+                    "type": "TextComponent",
+                    "text": "Acesse seus álbuns de fotos",
+                    "alignment": "center",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1.0
+                },
+                "icon": null,
+                "action": {
+                    "type": "BuilderNavigationAction",
+                    "page": {
+                        "type": "Page",
+                        "layout": "masonry",
+                        "title": "Galeria",
+                        "apiUrl": "http://localhost:3000/gallery",
+                        "skeleton": [
+                            {
+                                "type": "ThumbnailSkeleton",
+                                "count": 8
                             }
+                        ]
+                    }
+                },
+                "backgroundImageUrl": null,
+                "color": null,
+                "disabled": false,
+                "fullWidth": false,
+                "horizontalAlignment": "center",
+                "verticalAlignment": "center",
+                "horizontalSize": 1,
+                "verticalSize": 1.0
+            },
+            {
+                "type": "CardButtonComponent",
+                "title": {
+                    "type": "TextComponent",
+                    "text": "Betha Educação",
+                    "alignment": "start",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1.1
+                },
+                "subtitle": {
+                    "type": "TextComponent",
+                    "text": "Veja as informações dos alunos",
+                    "alignment": "center",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1.0
+                },
+                "icon": null,
+                "action": {
+                    "type": "BuilderNavigationAction",
+                    "page": {
+                        "type": "Page",
+                        "layout": "list",
+                        "title": "Notícias",
+                        "apiUrl": "http://localhost:3000/betha_list_students"
+                    }
+                },
+                "backgroundImageUrl": null,
+                "color": null,
+                "disabled": false,
+                "fullWidth": false,
+                "horizontalAlignment": "center",
+                "verticalAlignment": "center",
+                "horizontalSize": 1,
+                "verticalSize": 1.0
+            },
+            {
+                "type": "CardButtonComponent",
+                "title": {
+                    "type": "TextComponent",
+                    "text": "Notícias",
+                    "alignment": "start",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1.1
+                },
+                "subtitle": {
+                    "type": "TextComponent",
+                    "text": "Paginadas",
+                    "alignment": "center",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1.1
+                },
+                "icon": null,
+                "action": {
+                    "type": "BuilderNavigationAction",
+                    "page": {
+                        "type": "InfiniteScrollPage",
+                        "layout": "list",
+                        "title": "Notícias",
+                        "apiUrl": "http://localhost:3000/paginated_news"
+                    }
+                },
+                "backgroundImageUrl": null,
+                "color": null,
+                "disabled": false,
+                "fullWidth": false,
+                "horizontalAlignment": "center",
+                "verticalAlignment": "center",
+                "horizontalSize": 1,
+                "verticalSize": 1.0
+            },
+            {
+                "type": "CardButtonComponent",
+                "title": {
+                    "type": "TextComponent",
+                    "text": "Galeria",
+                    "alignment": "start",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1.1
+                },
+                "subtitle": {
+                    "type": "TextComponent",
+                    "text": "Meus documentos",
+                    "alignment": "center",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1.1
+                },
+                "icon": null,
+                "action": {
+                    "type": "BuilderNavigationAction",
+                    "page": {
+                        "type": "FileManagerPage",
+                        "layout": "masonry",
+                        "title": "Meus documentos",
+                        "apiUrl": "http://localhost:3000/file_manager"
+                    }
+                },
+                "backgroundImageUrl": null,
+                "color": null,
+                "disabled": false,
+                "fullWidth": false,
+                "horizontalAlignment": "center",
+                "verticalAlignment": "center",
+                "horizontalSize": 1,
+                "verticalSize": 1.0
+            },
+            {
+                "type": "CardButtonComponent",
+                "title": {
+                    "type": "TextComponent",
+                    "text": "Atendimentos",
+                    "alignment": "start",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1.1
+                },
+                "subtitle": {
+                    "type": "TextComponent",
+                    "text": "e protocólos",
+                    "alignment": "center",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1.1
+                },
+                "icon": null,
+                "action": {
+                    "type": "BuilderNavigationAction",
+                    "page": {
+                        "type": "Page",
+                        "layout": "list",
+                        "title": "Meus atendimentos",
+                        "apiUrl": "http://localhost:3000/tickets"
+                    }
+                },
+                "backgroundImageUrl": null,
+                "color": null,
+                "disabled": false,
+                "fullWidth": false,
+                "horizontalAlignment": "center",
+                "verticalAlignment": "center",
+                "horizontalSize": 1,
+                "verticalSize": 1.0
+            }
+        ],
+        "modals": [
+            {
+                "id": "add-user",
+                "type": "Modal",
+                "title": "Adicionar Usuário",
+                "description": null,
+                "form": {
+                    "id": "add-user",
+                    "type": "FormComponent",
+                    "action": "https://www.google.com.br",
+                    "method": "POST",
+                    "children": [
+                        {
+                            "type": "TextInputComponent",
+                            "label": "Nome",
+                            "required": true
                         },
                         {
-                            "type": "FilledButtonComponent",
-                            "label": "Adicionar",
-                            "action": {
-                                "type": "submit",
-                                "form": "add-user"
-                            }
+                            "type": "TextInputComponent",
+                            "label": "Email",
+                            "required": true
                         }
                     ]
-                }
+                },
+                "buttons": [
+                    {
+                        "type": "TextButtonComponent",
+                        "label": "Cancelar",
+                        "action": {
+                            "type": "CancelAction"
+                        }
+                    },
+                    {
+                        "type": "TextButtonComponent",
+                        "label": "Adicionar",
+                        "action": {
+                            "type": "SubmitAction",
+                            "formId": "add-user",
+                            "url": "https://www.google.com.br",
+                            "method": "post"
+                        }
+                    }
+                ]
             }
         ]
     },
-    "about": {
-        "type": "DrawerPage",
-        "title": "Sobre",
-        "body": {
-            "type": "GridViewComponent",
-            "children": [
-                {
-                    "type": "FilledButtonComponent",
-                    "label": "Adicionar texto",
-                    "action": {
-                        "type": "modal",
-                        "modal": "add-text"
-                    }
-                },
-                {
-                    "type": "FilledButtonComponent",
-                    "label": "Voltar",
-                    "action": {
-                        "type": "navigation",
-                        "route": "/",
-                        "requestUrl": "http://localhost:3000/"
-                    }
-                }
-            ]
+    "news": {
+        "type": "Page",
+        "layout": "list",
+        "title": "Notícias da Cidade",
+        "button": {
+            "type": "IconButtonComponent",
+            "action": {
+                "type": "SearchAction",
+                "searchUrl": "http://localhost:3000/search_results",
+                "filtersUrl": null
+            },
+            "disabled": false,
+            "color": null,
+            "filled": false,
+            "tonal": false,
+            "outlined": false,
+            "icon": {
+                "type": "MaterialDesignIconComponent",
+                "color": null,
+                "name": "0xe567"
+            }
         },
-        "modals": [
+        "heading": null,
+        "subheading": "Notícias da nossa cidade",
+        "modals": [],
+        "children": [
             {
-                "add-text": {
-                    "type": "ModalComponent",
-                    "title": "Adicionar Texto",
-                    "form": {
-                        "id": "add-text",
-                        "type": "FormComponent",
-                        "action": "https://www.google.com.br",
-                        "method": "POST",
-                        "children": [
+                "type": "ImageCardComponent",
+                "title": "Notícia 1",
+                "subtitle": "Subtítulo da notícia 1",
+                "description": "Descrição da notícia 1",
+                "buttons": [
+                    {
+                        "type": "TextButtonComponent",
+                        "action": {
+                            "type": "NavigationAction",
+                            "url": "piedpiper:///blog/post"
+                        },
+                        "disabled": false,
+                        "color": null,
+                        "filled": false,
+                        "tonal": false,
+                        "outlined": false,
+                        "label": "Ler mais",
+                        "icon": null,
+                        "fullWidth": false
+                    }
+                ],
+                "action": {
+                    "type": "NavigationAction",
+                    "url": "piedpiper:///blog/post"
+                },
+                "imageUrl": "https://picsum.photos/800.jpg"
+            },
+            {
+                "type": "ImageCardComponent",
+                "title": "Notícia 2",
+                "subtitle": "Subtítulo da notícia 2",
+                "description": "Descrição da notícia 2",
+                "buttons": [
+                    {
+                        "type": "TextButtonComponent",
+                        "action": {
+                            "type": "NavigationAction",
+                            "url": "piedpiper:///blog/post"
+                        },
+                        "disabled": false,
+                        "color": null,
+                        "filled": false,
+                        "tonal": false,
+                        "outlined": false,
+                        "label": "Ler mais",
+                        "icon": null,
+                        "fullWidth": false
+                    }
+                ],
+                "action": {
+                    "type": "NavigationAction",
+                    "url": "piedpiper:///blog/post"
+                },
+                "imageUrl": "https://picsum.photos/800.jpg"
+            },
+            {
+                "type": "ImageCardComponent",
+                "title": "Notícia 3",
+                "subtitle": "Subtítulo da notícia 3",
+                "description": "Descrição da notícia 3",
+                "buttons": [
+                    {
+                        "type": "TextButtonComponent",
+                        "action": {
+                            "type": "NavigationAction",
+                            "url": "piedpiper:///blog/post"
+                        },
+                        "disabled": false,
+                        "color": null,
+                        "filled": false,
+                        "tonal": false,
+                        "outlined": false,
+                        "label": "Ler mais",
+                        "icon": null,
+                        "fullWidth": false
+                    }
+                ],
+                "action": {
+                    "type": "NavigationAction",
+                    "url": "piedpiper:///blog/post"
+                },
+                "imageUrl": "https://picsum.photos/800.jpg"
+            }
+        ],
+        "emptyState": {
+            "type": "StateComponent",
+            "icon": {
+                "type": "NetworkIconComponent",
+                "color": {
+                    "type": "ThemeColor",
+                    "name": "primary"
+                },
+                "url": "https://picsum.photos/800.jpg"
+            },
+            "title": "Nenhuma notícia encontrada.",
+            "description": "Tente novamente usando outros filtros.",
+            "button": null
+        },
+        "errorState": {
+            "type": "StateComponent",
+            "icon": {
+                "type": "NetworkIconComponent",
+                "color": {
+                    "type": "ThemeColor",
+                    "name": "error"
+                },
+                "url": "https://picsum.photos/800.jpg"
+            },
+            "title": "Ocorreu um erro ao carregar as notícias.",
+            "description": "Tente novamente mais tarde.",
+            "button": {
+                "type": "TextButtonComponent",
+                "action": {
+                    "type": "RefreshAction"
+                },
+                "disabled": false,
+                "color": null,
+                "filled": false,
+                "tonal": false,
+                "outlined": false,
+                "label": "Recarregar a página",
+                "icon": null,
+                "fullWidth": false
+            }
+        },
+        "apiUrl": "https://example.com/api/news"
+    },
+    "form": {
+        "type": "Page",
+        "layout": "column",
+        "title": "Solicitação de serviços",
+        "button": null,
+        "heading": null,
+        "subheading": null,
+        "modals": [],
+        "children": [
+            {
+                "type": "TextComponent",
+                "text": "Preencha o formulário a seguir",
+                "alignment": "start",
+                "weight": "regular",
+                "color": null,
+                "scaleFactor": 1.1
+            },
+            {
+                "type": "FormComponent",
+                "id": "form",
+                "fields": [
+                    {
+                        "type": "TextFieldComponent",
+                        "name": "text_field",
+                        "label": "Nome",
+                        "required": false,
+                        "disabled": false,
+                        "hidden": false,
+                        "default": null,
+                        "multiline": false,
+                        "keyboardType": null,
+                        "mask": null
+                    },
+                    {
+                        "type": "SelectFieldComponent",
+                        "name": "select_field",
+                        "label": "Sexo",
+                        "required": false,
+                        "disabled": false,
+                        "hidden": false,
+                        "default": null,
+                        "options": [],
+                        "optionsUrl": null
+                    },
+                    {
+                        "type": "AutoCompleteFieldComponent",
+                        "name": "autocomplete_field",
+                        "label": "Cidade",
+                        "required": false,
+                        "disabled": false,
+                        "hidden": false,
+                        "url": null,
+                        "method": "get",
+                        "searchKey": "search",
+                        "dataKey": null,
+                        "labelKey": null,
+                        "fuzzy": false,
+                        "query": {},
+                        "headers": {},
+                        "options": [
                             {
-                                "type": "TextInputComponent",
-                                "label": "Texto",
-                                "required": true
+                                "title": "Option 1",
+                                "id": "option_1"
+                            },
+                            {
+                                "title": "Option 2",
+                                "id": "option_2"
+                            },
+                            {
+                                "title": "Option 3",
+                                "id": "option_3"
                             }
                         ]
                     },
-                    "actions": [
+                    {
+                        "type": "AttachmentFieldComponent",
+                        "name": "attachment_field",
+                        "label": "Comprovante de cidade",
+                        "required": false,
+                        "disabled": false,
+                        "hidden": false,
+                        "multiple": true,
+                        "maxSize": 20
+                    },
+                    {
+                        "type": "RatingFieldComponent",
+                        "name": "rating_field",
+                        "label": "Avalie sua experiência",
+                        "required": false,
+                        "disabled": false,
+                        "hidden": false,
+                        "default": null
+                    },
+                    {
+                        "type": "StickyTextComponent",
+                        "text": "This is a sticky text (or is it?)",
+                        "alignment": "start",
+                        "weight": "regular",
+                        "color": null,
+                        "scaleFactor": 1.1
+                    },
+                    {
+                        "type": "SignatureFieldComponent",
+                        "name": "signature_field",
+                        "label": "Assinatura",
+                        "required": false,
+                        "disabled": false,
+                        "hidden": false
+                    },
+                    {
+                        "type": "DateFieldComponent",
+                        "name": "date_field",
+                        "label": "Data de hoje",
+                        "required": false,
+                        "disabled": false,
+                        "hidden": false,
+                        "default": null
+                    },
+                    {
+                        "type": "TimeFieldComponent",
+                        "name": "time_field",
+                        "label": "Hora da solicitação",
+                        "required": false,
+                        "disabled": false,
+                        "hidden": false,
+                        "default": null
+                    },
+                    {
+                        "type": "StickyTextComponent",
+                        "text": "This (actually) is a sticky text!",
+                        "alignment": "start",
+                        "weight": "regular",
+                        "color": null,
+                        "scaleFactor": 1.1
+                    },
+                    {
+                        "type": "DateTimeFieldComponent",
+                        "name": "datetime_field",
+                        "label": "Data e hora",
+                        "required": false,
+                        "disabled": false,
+                        "hidden": false,
+                        "default": null
+                    },
+                    {
+                        "type": "TextFieldComponent",
+                        "name": "text_field",
+                        "label": "Nome",
+                        "required": false,
+                        "disabled": false,
+                        "hidden": false,
+                        "default": null,
+                        "multiline": false,
+                        "keyboardType": null,
+                        "mask": null
+                    },
+                    {
+                        "type": "TextFieldComponent",
+                        "name": "text_field",
+                        "label": "Nome",
+                        "required": false,
+                        "disabled": false,
+                        "hidden": false,
+                        "default": null,
+                        "multiline": false,
+                        "keyboardType": null,
+                        "mask": null
+                    },
+                    {
+                        "type": "TextFieldComponent",
+                        "name": "text_field",
+                        "label": "Nome",
+                        "required": false,
+                        "disabled": false,
+                        "hidden": false,
+                        "default": null,
+                        "multiline": false,
+                        "keyboardType": null,
+                        "mask": null
+                    },
+                    {
+                        "type": "TextFieldComponent",
+                        "name": "text_field",
+                        "label": "Nome",
+                        "required": false,
+                        "disabled": false,
+                        "hidden": false,
+                        "default": null,
+                        "multiline": false,
+                        "keyboardType": null,
+                        "mask": null
+                    },
+                    {
+                        "type": "TextFieldComponent",
+                        "name": "text_field",
+                        "label": "Nome",
+                        "required": false,
+                        "disabled": false,
+                        "hidden": false,
+                        "default": null,
+                        "multiline": false,
+                        "keyboardType": null,
+                        "mask": null
+                    },
+                    {
+                        "type": "TextFieldComponent",
+                        "name": "text_field",
+                        "label": "Nome",
+                        "required": false,
+                        "disabled": false,
+                        "hidden": false,
+                        "default": null,
+                        "multiline": false,
+                        "keyboardType": null,
+                        "mask": null
+                    },
+                    {
+                        "type": "TextFieldComponent",
+                        "name": "text_field",
+                        "label": "Nome",
+                        "required": false,
+                        "disabled": false,
+                        "hidden": false,
+                        "default": null,
+                        "multiline": false,
+                        "keyboardType": null,
+                        "mask": null
+                    }
+                ]
+            },
+            {
+                "type": "TextButtonComponent",
+                "action": {
+                    "type": "SubmitAction",
+                    "formId": "form",
+                    "url": "https://example.com/api/forms/create",
+                    "method": "post",
+                    "query": null,
+                    "body": null,
+                    "headers": null,
+                    "onSuccess": null,
+                    "onError": null
+                },
+                "disabled": false,
+                "color": null,
+                "filled": true,
+                "tonal": false,
+                "outlined": false,
+                "label": "Submit",
+                "icon": null,
+                "fullWidth": true
+            }
+        ],
+        "emptyState": null,
+        "errorState": null,
+        "apiUrl": "https://example.com/api/forms"
+    },
+    "view_post": {
+        "type": "Page",
+        "layout": "column",
+        "title": null,
+        "button": null,
+        "heading": null,
+        "subheading": null,
+        "modals": [],
+        "children": [
+            {
+                "type": "CarouselComponent",
+                "items": [
+                    {
+                        "type": "CarouselItemComponent",
+                        "imageUrl": "https://picsum.photos/800.jpg",
+                        "action": {
+                            "type": "MediaViewAction",
+                            "mediaUrl": "https://picsum.photos/800.jpg"
+                        }
+                    },
+                    {
+                        "type": "CarouselItemComponent",
+                        "imageUrl": "https://picsum.photos/800.jpg",
+                        "action": {
+                            "type": "MediaViewAction",
+                            "mediaUrl": "https://picsum.photos/800.jpg"
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "TextComponent",
+                "text": "Notícia 1",
+                "alignment": "start",
+                "weight": "regular",
+                "color": null,
+                "scaleFactor": 1
+            },
+            {
+                "type": "RowComponent",
+                "children": [
+                    {
+                        "type": "BadgeComponent",
+                        "label": "Categoria 1",
+                        "icon": null,
+                        "color": null,
+                        "filled": false,
+                        "outlined": true
+                    },
+                    {
+                        "type": "TextComponent",
+                        "text": "Data da publicação",
+                        "alignment": "start",
+                        "weight": "regular",
+                        "color": null,
+                        "scaleFactor": 1
+                    }
+                ]
+            },
+            {
+                "type": "HtmlComponent",
+                "content": "<p>Conteúdo da notícia 1</p>"
+            }
+        ],
+        "emptyState": null,
+        "errorState": {
+            "type": "StateComponent",
+            "icon": {
+                "type": "NetworkIconComponent",
+                "color": {
+                    "type": "ThemeColor",
+                    "name": "error"
+                },
+                "url": "https://picsum.photos/800.jpg"
+            },
+            "title": "Ocorreu um erro ao carregar a notícia.",
+            "description": "Tente novamente mais tarde.",
+            "button": {
+                "type": "TextButtonComponent",
+                "action": {
+                    "type": "RefreshAction"
+                },
+                "disabled": false,
+                "color": null,
+                "filled": false,
+                "tonal": false,
+                "outlined": false,
+                "label": "Recarregar a página",
+                "icon": null,
+                "fullWidth": false
+            }
+        },
+        "apiUrl": "https://example.com/api/news/1"
+    },
+    "pluviometric_stations": {
+        "type": "Page",
+        "layout": "column",
+        "title": "Estações pluviométricas",
+        "button": null,
+        "heading": null,
+        "subheading": "Confira os níveis de chuva na cidade",
+        "modals": [],
+        "children": [
+            {
+                "type": "TextComponent",
+                "text": "Os alertas são emitidos com base no nível acumulado de chuva nas últimas 24 horas.",
+                "alignment": "start",
+                "weight": "regular",
+                "color": null,
+                "scaleFactor": 1
+            },
+            {
+                "type": "RowComponent",
+                "children": [
+                    {
+                        "type": "BadgeComponent",
+                        "label": "0 a 9mm",
+                        "icon": null,
+                        "color": {
+                            "type": "MaterialColor",
+                            "name": "green"
+                        },
+                        "filled": true,
+                        "outlined": false
+                    },
+                    {
+                        "type": "BadgeComponent",
+                        "label": "10 a 29mm",
+                        "icon": null,
+                        "color": {
+                            "type": "MaterialColor",
+                            "name": "yellow"
+                        },
+                        "filled": true,
+                        "outlined": false
+                    },
+                    {
+                        "type": "BadgeComponent",
+                        "label": "30 a 69mm",
+                        "icon": null,
+                        "color": {
+                            "type": "MaterialColor",
+                            "name": "orange"
+                        },
+                        "filled": true,
+                        "outlined": false
+                    },
+                    {
+                        "type": "BadgeComponent",
+                        "label": "Maior ou igual a 70mm",
+                        "icon": null,
+                        "color": {
+                            "type": "MaterialColor",
+                            "name": "red"
+                        },
+                        "filled": true,
+                        "outlined": false
+                    }
+                ]
+            },
+            {
+                "type": "ListItemComponent",
+                "prefix": null,
+                "title": {
+                    "type": "TextComponent",
+                    "text": "SAMAE Ilha da Figueira",
+                    "alignment": "start",
+                    "weight": "bold",
+                    "color": {
+                        "type": "ThemeColor",
+                        "name": "primary"
+                    },
+                    "scaleFactor": 1
+                },
+                "subtitle": {
+                    "type": "PrefixedTextComponent",
+                    "text": "28/07/1997 08:00",
+                    "alignment": "start",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1,
+                    "prefix": {
+                        "type": "MaterialDesignIconComponent",
+                        "color": {
+                            "type": "ThemeColor",
+                            "name": "onSurface"
+                        },
+                        "name": "0xef11",
+                        "size": 10
+                    }
+                },
+                "description": {
+                    "type": "RowComponent",
+                    "children": [
                         {
-                            "type": "FilledButtonComponent",
-                            "label": "Cancelar",
-                            "action": {
-                                "type": "cancel"
+                            "type": "PrefixedTextComponent",
+                            "text": "3.6mm",
+                            "alignment": "start",
+                            "weight": "regular",
+                            "color": null,
+                            "scaleFactor": 1,
+                            "prefix": {
+                                "type": "TextComponent",
+                                "text": "12h:",
+                                "alignment": "start",
+                                "weight": "bold",
+                                "color": null,
+                                "scaleFactor": 1
                             }
                         },
                         {
-                            "type": "FilledButtonComponent",
-                            "label": "Adicionar",
-                            "action": {
-                                "type": "submit",
-                                "form": "add-text"
+                            "type": "PrefixedTextComponent",
+                            "text": "6mm",
+                            "alignment": "start",
+                            "weight": "regular",
+                            "color": null,
+                            "scaleFactor": 1,
+                            "prefix": {
+                                "type": "TextComponent",
+                                "text": "Atual:",
+                                "alignment": "start",
+                                "weight": "bold",
+                                "color": null,
+                                "scaleFactor": 1
                             }
                         }
                     ]
+                },
+                "suffix": {
+                    "type": "BadgeComponent",
+                    "label": "6mm",
+                    "icon": null,
+                    "color": {
+                        "type": "MaterialColor",
+                        "name": "green"
+                    },
+                    "filled": true,
+                    "outlined": false
+                },
+                "contained": true,
+                "action": null
+            }
+        ],
+        "emptyState": null,
+        "errorState": {
+            "type": "StateComponent",
+            "icon": {
+                "type": "NetworkIconComponent",
+                "color": {
+                    "type": "ThemeColor",
+                    "name": "error"
+                },
+                "url": "https://picsum.photos/800.jpg"
+            },
+            "title": "Ocorreu um erro ao carregar as estações pluviométricas.",
+            "description": "Tente novamente mais tarde.",
+            "button": {
+                "type": "TextButtonComponent",
+                "action": {
+                    "type": "RefreshAction"
+                },
+                "disabled": false,
+                "color": null,
+                "filled": false,
+                "tonal": false,
+                "outlined": false,
+                "label": "Recarregar a página",
+                "icon": null,
+                "fullWidth": false
+            }
+        },
+        "apiUrl": "https://example.com/api/pluviometric-stations"
+    },
+    "gallery": {
+        "type": "Page",
+        "layout": "masonry",
+        "title": null,
+        "button": null,
+        "heading": null,
+        "subheading": null,
+        "modals": [],
+        "children": [
+            {
+                "type": "ThumbnailComponent",
+                "height": 100,
+                "width": 100,
+                "thumbnailUrl": "https://picsum.photos/800.jpg",
+                "action": {
+                    "type": "MediaViewAction",
+                    "mediaUrl": "https://picsum.photos/800.jpg"
+                }
+            },
+            {
+                "type": "ThumbnailComponent",
+                "height": 150,
+                "width": 100,
+                "thumbnailUrl": "https://picsum.photos/800/1200.jpg",
+                "action": {
+                    "type": "MediaViewAction",
+                    "mediaUrl": "https://picsum.photos/800.jpg"
+                }
+            },
+            {
+                "type": "ThumbnailComponent",
+                "height": 100,
+                "width": 100,
+                "thumbnailUrl": "https://picsum.photos/800.jpg",
+                "action": {
+                    "type": "MediaViewAction",
+                    "mediaUrl": "https://picsum.photos/800.jpg"
+                }
+            },
+            {
+                "type": "ThumbnailComponent",
+                "height": 100,
+                "width": 100,
+                "thumbnailUrl": "https://picsum.photos/800.jpg",
+                "action": {
+                    "type": "MediaViewAction",
+                    "mediaUrl": "https://picsum.photos/800.jpg"
+                }
+            },
+            {
+                "type": "ThumbnailComponent",
+                "height": 150,
+                "width": 100,
+                "thumbnailUrl": "https://picsum.photos/800/1000.jpg",
+                "action": {
+                    "type": "MediaViewAction",
+                    "mediaUrl": "https://picsum.photos/800/1000.jpg"
+                }
+            },
+            {
+                "type": "ThumbnailComponent",
+                "height": 100,
+                "width": 100,
+                "thumbnailUrl": "https://picsum.photos/800.jpg",
+                "action": {
+                    "type": "MediaViewAction",
+                    "mediaUrl": "https://picsum.photos/800.jpg"
+                }
+            },
+            {
+                "type": "ThumbnailComponent",
+                "height": 100,
+                "width": 100,
+                "thumbnailUrl": "https://picsum.photos/800.jpg",
+                "action": {
+                    "type": "MediaViewAction",
+                    "mediaUrl": "https://picsum.photos/800.jpg"
+                }
+            },
+            {
+                "type": "ThumbnailComponent",
+                "height": 100,
+                "width": 100,
+                "thumbnailUrl": "https://picsum.photos/800.jpg",
+                "action": {
+                    "type": "MediaViewAction",
+                    "mediaUrl": "https://picsum.photos/800.jpg"
                 }
             }
+        ],
+        "emptyState": null,
+        "errorState": {
+            "type": "StateComponent",
+            "icon": {
+                "type": "NetworkIconComponent",
+                "color": {
+                    "type": "ThemeColor",
+                    "name": "error"
+                },
+                "url": "https://picsum.photos/800.jpg"
+            },
+            "title": "Ocorreu um erro ao carregar as mídias.",
+            "description": "Tente novamente mais tarde.",
+            "button": {
+                "type": "TextButtonComponent",
+                "action": {
+                    "type": "RefreshAction"
+                },
+                "disabled": false,
+                "color": null,
+                "filled": false,
+                "tonal": false,
+                "outlined": false,
+                "label": "Recarregar a página",
+                "icon": null,
+                "fullWidth": false
+            }
+        },
+        "apiUrl": "https://example.com/api/gallery"
+    },
+    "betha_list_students": {
+        "type": "Page",
+        "layout": "list",
+        "title": null,
+        "button": {
+            "type": "IconButtonComponent",
+            "action": {
+                "type": "ModalAction",
+                "modalId": "add-student"
+            },
+            "disabled": false,
+            "color": null,
+            "filled": false,
+            "tonal": false,
+            "outlined": false,
+            "icon": {
+                "type": "MaterialDesignIconComponent",
+                "color": null,
+                "name": "0xe047"
+            }
+        },
+        "heading": null,
+        "subheading": null,
+        "modals": [
+            {
+                "type": "FormModal",
+                "id": "add-student",
+                "title": "Adicionar aluno",
+                "description": "Digite a chave de acesso do aluno para adicioná-lo.",
+                "icon": null,
+                "form": {
+                    "type": "FormComponent",
+                    "id": "add-user",
+                    "fields": [
+                        {
+                            "type": "TextFieldComponent",
+                            "name": "access_key",
+                            "label": "Chave de acesso",
+                            "required": true,
+                            "disabled": false,
+                            "hidden": false,
+                            "default": null,
+                            "multiline": false,
+                            "keyboardType": 0,
+                            "mask": null,
+                            "horizontalPadding": 0.0,
+                            "verticalPadding": null,
+                            "adjacentLabel": false
+                        }
+                    ]
+                },
+                "submitButtonLabel": "Adicionar",
+                "submitAction": {
+                    "type": "SubmitAction",
+                    "formId": "add-user",
+                    "url": "https://www.google.com.br",
+                    "method": "post",
+                    "onSuccess": [
+                        {
+                            "type": "CancelAction",
+                            "pop": false
+                        },
+                        {
+                            "type": "RefreshAction"
+                        },
+                        {
+                            "type": "SnackBarAction",
+                            "description": "Aluno adicionado com sucesso!",
+                            "color": null,
+                            "duration": 4000
+                        }
+                    ],
+                    "onError": [
+                        {
+                            "type": "CancelAction",
+                            "pop": false
+                        },
+                        {
+                            "type": "ModalAction",
+                            "modalId": "add-student-error"
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "Modal",
+                "id": "add-student-success",
+                "title": "Aluno adicionado!",
+                "description": "O aluno foi adicionado com sucesso!",
+                "icon": null,
+                "children": [],
+                "buttons": [
+                    {
+                        "type": "TextButtonComponent",
+                        "action": {
+                            "type": "RefreshAction"
+                        },
+                        "disabled": false,
+                        "color": null,
+                        "filled": false,
+                        "tonal": false,
+                        "outlined": false,
+                        "label": "Fechar",
+                        "icon": null,
+                        "fullWidth": false
+                    }
+                ]
+            },
+            {
+                "type": "Modal",
+                "id": "add-student-error",
+                "title": "Erro ao adicionar aluno.",
+                "description": "Por favor, verifique se a chave de acesso está correta.",
+                "icon": null,
+                "children": [],
+                "buttons": [
+                    {
+                        "type": "TextButtonComponent",
+                        "action": {
+                            "type": "CancelAction",
+                            "pop": false
+                        },
+                        "disabled": false,
+                        "color": null,
+                        "filled": false,
+                        "tonal": false,
+                        "outlined": false,
+                        "label": "Cancelar",
+                        "icon": null,
+                        "fullWidth": false
+                    }
+                ]
+            }
+        ],
+        "children": [
+            {
+                "type": "ListItemComponent",
+                "prefix": {
+                    "type": "AvatarComponent",
+                    "text": "S",
+                    "imageUrl": "https://api.dicebear.com/7.x/thumbs/png?seed=Boo",
+                    "backgroundColor": null
+                },
+                "title": {
+                    "type": "TextComponent",
+                    "text": "Saade",
+                    "alignment": "start",
+                    "weight": "bold",
+                    "color": null,
+                    "scaleFactor": 1
+                },
+                "subtitle": {
+                    "type": "TextComponent",
+                    "text": "Masculino",
+                    "alignment": "start",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1
+                },
+                "description": null,
+                "suffix": {
+                    "type": "TextComponent",
+                    "text": "28/07/1997",
+                    "alignment": "start",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1
+                },
+                "contained": true,
+                "action": {
+                    "type": "BuilderNavigationAction",
+                    "page": {
+                        "type": "Page",
+                        "layout": "list",
+                        "title": "Estudante",
+                        "apiUrl": "http://localhost:3000/betha_view_student"
+                    }
+                }
+            }
+        ],
+        "emptyState": null,
+        "errorState": null,
+        "apiUrl": "https://example.com/api/students"
+    },
+    "betha_view_student": {
+        "type": "Page",
+        "layout": "list",
+        "title": null,
+        "button": {
+            "type": "IconButtonComponent",
+            "action": {
+                "type": "DropdownAction",
+                "items": [
+                    {
+                        "type": "DropdownItemComponent",
+                        "label": "Remover aluno",
+                        "action": {
+                            "type": "ModalAction",
+                            "modalId": "remove-student"
+                        }
+                    }
+                ]
+            },
+            "disabled": false,
+            "color": null,
+            "filled": false,
+            "tonal": false,
+            "outlined": false,
+            "icon": {
+                "type": "MaterialDesignIconComponent",
+                "color": null,
+                "name": "0xe402"
+            }
+        },
+        "heading": null,
+        "subheading": null,
+        "modals": [
+            {
+                "type": "Modal",
+                "id": "remove-student",
+                "title": "Remover aluno",
+                "description": "Tem certeza que deseja remover o aluno?",
+                "icon": null,
+                "children": [],
+                "buttons": [
+                    {
+                        "type": "TextButtonComponent",
+                        "action": {
+                            "type": "RequestAction",
+                            "url": "https://example.com/api/students/asBAUd79acC",
+                            "method": "delete",
+                            "query": null,
+                            "body": null,
+                            "headers": null,
+                            "onSuccess": [
+                                {
+                                    "type": "CancelAction",
+                                    "pop": true
+                                },
+                                {
+                                    "type": "SnackBarAction",
+                                    "description": "Aluno removido com sucesso!",
+                                    "color": null,
+                                    "duration": 4000
+                                }
+                            ],
+                            "onError": [
+                                {
+                                    "type": "SnackBarAction",
+                                    "description": "Não foi possível remover o aluno!",
+                                    "color": null,
+                                    "duration": 4000
+                                }
+                            ]
+                        },
+                        "disabled": false,
+                        "color": {
+                            "type": "ThemeColor",
+                            "name": "error"
+                        },
+                        "filled": false,
+                        "tonal": false,
+                        "outlined": false,
+                        "label": "Remover",
+                        "icon": null,
+                        "fullWidth": false
+                    }
+                ]
+            }
+        ],
+        "children": [
+            {
+                "type": "ColumnComponent",
+                "children": [
+                    {
+                        "type": "AvatarComponent",
+                        "text": "S",
+                        "imageUrl": "https://api.dicebear.com/7.x/thumbs/png?seed=Boo",
+                        "backgroundColor": null
+                    },
+                    {
+                        "type": "TextComponent",
+                        "text": "Saade",
+                        "alignment": "start",
+                        "weight": "bold",
+                        "color": null,
+                        "scaleFactor": 1
+                    },
+                    {
+                        "type": "TextComponent",
+                        "text": "Masculino",
+                        "alignment": "start",
+                        "weight": "regular",
+                        "color": null,
+                        "scaleFactor": 1
+                    },
+                    {
+                        "type": "TextComponent",
+                        "text": "28/07/1997",
+                        "alignment": "start",
+                        "weight": "regular",
+                        "color": null,
+                        "scaleFactor": 1
+                    }
+                ]
+            },
+            {
+                "type": "AsyncListItemComponent",
+                "prefix": null,
+                "title": {
+                    "type": "TextComponent",
+                    "text": "1º Ano",
+                    "alignment": "start",
+                    "weight": "bold",
+                    "color": null,
+                    "scaleFactor": 1
+                },
+                "subtitle": {
+                    "type": "TextComponent",
+                    "text": "2024",
+                    "alignment": "start",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1
+                },
+                "description": {
+                    "type": "TextComponent",
+                    "text": "Escola Municipal de Ensino Fundamental",
+                    "alignment": "start",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1
+                },
+                "suffix": null,
+                "contained": true,
+                "childrenUrl": "http://localhost:3000/student_attendance"
+            }
+        ],
+        "emptyState": null,
+        "errorState": null,
+        "apiUrl": "https://example.com/api/students/asBAUd79acC"
+    },
+    "student_attendance": [
+        {
+            "type": "TextComponent",
+            "text": "Frequência do alunoasdas",
+            "alignment": "start",
+            "weight": "regular",
+            "color": null,
+            "scaleFactor": 1.1
+        }
+    ],
+    "search_results": [
+        {
+            "type": "ListItemComponent",
+            "prefix": null,
+            "title": {
+                "type": "TextComponent",
+                "text": "Result 1",
+                "alignment": "start",
+                "weight": "bold",
+                "color": null,
+                "scaleFactor": 1
+            },
+            "subtitle": {
+                "type": "TextComponent",
+                "text": "Subtitle 1",
+                "alignment": "start",
+                "weight": "regular",
+                "color": null,
+                "scaleFactor": 1
+            },
+            "description": {
+                "type": "TextComponent",
+                "text": "Description 1",
+                "alignment": "start",
+                "weight": "regular",
+                "color": null,
+                "scaleFactor": 1
+            },
+            "suffix": null,
+            "contained": true,
+            "action": {
+                "type": "NavigationAction",
+                "url": "piedpiper:///blog"
+            }
+        },
+        {
+            "type": "ListItemComponent",
+            "prefix": null,
+            "title": {
+                "type": "TextComponent",
+                "text": "Result 2",
+                "alignment": "start",
+                "weight": "bold",
+                "color": null,
+                "scaleFactor": 1
+            },
+            "subtitle": {
+                "type": "TextComponent",
+                "text": "Subtitle 2",
+                "alignment": "start",
+                "weight": "regular",
+                "color": null,
+                "scaleFactor": 1
+            },
+            "description": {
+                "type": "TextComponent",
+                "text": "Description 2",
+                "alignment": "start",
+                "weight": "regular",
+                "color": null,
+                "scaleFactor": 1
+            },
+            "suffix": null,
+            "contained": true,
+            "action": {
+                "type": "NavigationAction",
+                "url": "piedpiper:///blog"
+            }
+        },
+        {
+            "type": "ListItemComponent",
+            "prefix": null,
+            "title": {
+                "type": "TextComponent",
+                "text": "Result 3",
+                "alignment": "start",
+                "weight": "bold",
+                "color": null,
+                "scaleFactor": 1
+            },
+            "subtitle": {
+                "type": "TextComponent",
+                "text": "Subtitle 3",
+                "alignment": "start",
+                "weight": "regular",
+                "color": null,
+                "scaleFactor": 1
+            },
+            "description": {
+                "type": "TextComponent",
+                "text": "Description 3",
+                "alignment": "start",
+                "weight": "regular",
+                "color": null,
+                "scaleFactor": 1
+            },
+            "suffix": null,
+            "contained": true,
+            "action": {
+                "type": "NavigationAction",
+                "url": "piedpiper:///blog"
+            }
+        }
+    ],
+    "paginated_news": {
+        "type": "InfiniteScrollPage",
+        "layout": "list",
+        "title": "Notícias da Cidade ++",
+        "button": {
+            "type": "IconButtonComponent",
+            "action": {
+                "type": "SearchAction",
+                "searchUrl": "http://localhost:3000/search_results",
+                "filtersUrl": null
+            },
+            "disabled": false,
+            "color": null,
+            "filled": false,
+            "tonal": false,
+            "outlined": false,
+            "icon": {
+                "type": "MaterialDesignIconComponent",
+                "color": null,
+                "name": "0xe567"
+            }
+        },
+        "heading": null,
+        "subheading": "Notícias da nossa cidade",
+        "modals": [],
+        "children": [
+            {
+                "type": "ImageCardComponent",
+                "title": "Notícia 1",
+                "subtitle": "Subtítulo da notícia 1",
+                "description": "Descrição da notícia 1",
+                "buttons": [
+                    {
+                        "type": "TextButtonComponent",
+                        "action": {
+                            "type": "NavigationAction",
+                            "url": "piedpiper:///blog/post"
+                        },
+                        "disabled": false,
+                        "color": null,
+                        "filled": false,
+                        "tonal": false,
+                        "outlined": false,
+                        "label": "Ler mais",
+                        "icon": null,
+                        "fullWidth": false
+                    }
+                ],
+                "action": {
+                    "type": "NavigationAction",
+                    "url": "piedpiper:///blog/post"
+                },
+                "imageUrl": "https://picsum.photos/800.jpg"
+            },
+            {
+                "type": "ImageCardComponent",
+                "title": "Notícia 2",
+                "subtitle": "Subtítulo da notícia 2",
+                "description": "Descrição da notícia 2",
+                "buttons": [
+                    {
+                        "type": "TextButtonComponent",
+                        "action": {
+                            "type": "NavigationAction",
+                            "url": "piedpiper:///blog/post"
+                        },
+                        "disabled": false,
+                        "color": null,
+                        "filled": false,
+                        "tonal": false,
+                        "outlined": false,
+                        "label": "Ler mais",
+                        "icon": null,
+                        "fullWidth": false
+                    }
+                ],
+                "action": {
+                    "type": "NavigationAction",
+                    "url": "piedpiper:///blog/post"
+                },
+                "imageUrl": "https://picsum.photos/800.jpg"
+            },
+            {
+                "type": "ImageCardComponent",
+                "title": "Notícia 3",
+                "subtitle": "Subtítulo da notícia 3",
+                "description": "Descrição da notícia 3",
+                "buttons": [
+                    {
+                        "type": "TextButtonComponent",
+                        "action": {
+                            "type": "NavigationAction",
+                            "url": "piedpiper:///blog/post"
+                        },
+                        "disabled": false,
+                        "color": null,
+                        "filled": false,
+                        "tonal": false,
+                        "outlined": false,
+                        "label": "Ler mais",
+                        "icon": null,
+                        "fullWidth": false
+                    }
+                ],
+                "action": {
+                    "type": "NavigationAction",
+                    "url": "piedpiper:///blog/post"
+                },
+                "imageUrl": "https://picsum.photos/800.jpg"
+            }
+        ],
+        "emptyState": {
+            "type": "StateComponent",
+            "icon": {
+                "type": "NetworkIconComponent",
+                "color": {
+                    "type": "ThemeColor",
+                    "name": "primary"
+                },
+                "url": "https://picsum.photos/800.jpg"
+            },
+            "title": "Nenhuma notícia encontrada.",
+            "description": "Tente novamente usando outros filtros.",
+            "button": null
+        },
+        "errorState": {
+            "type": "StateComponent",
+            "icon": {
+                "type": "NetworkIconComponent",
+                "color": {
+                    "type": "ThemeColor",
+                    "name": "error"
+                },
+                "url": "https://picsum.photos/800.jpg"
+            },
+            "title": "Ocorreu um erro ao carregar as notícias.",
+            "description": "Tente novamente mais tarde.",
+            "button": {
+                "type": "TextButtonComponent",
+                "action": {
+                    "type": "RefreshAction"
+                },
+                "disabled": false,
+                "color": null,
+                "filled": false,
+                "tonal": false,
+                "outlined": false,
+                "label": "Recarregar a página",
+                "icon": null,
+                "fullWidth": false
+            }
+        },
+        "apiUrl": "http://localhost:3000/paginated_news"
+    },
+    "file_manager": {
+        "type": "FileManagerPage",
+        "layout": "masonry",
+        "title": "Meus documentos",
+        "apiUrl": "http://localhost:3000/file_manager",
+        "items": [
+            {
+                "type": "FileManagerFile",
+                "id": "1",
+                "name": "Documento 1",
+                "thumbnailUrl": "https://picsum.photos/800?random=1.jpg",
+                "url": "https://picsum.photos/800?random=1.jpg",
+                "mimeType": "image/png",
+                "extension": "png",
+                "size": 150
+            },
+            {
+                "type": "FileManagerFile",
+                "id": "2",
+                "name": "Documento 2",
+                "thumbnailUrl": "https://picsum.photos/800?random=2.jpg",
+                "url": "https://picsum.photos/800?random=2.jpg",
+                "mimeType": "image/png",
+                "extension": "png",
+                "size": 150
+            },
+            {
+                "type": "FileManagerFile",
+                "id": "3",
+                "name": "Documento 3",
+                "thumbnailUrl": "https://picsum.photos/800?random=3.jpg",
+                "url": "https://picsum.photos/800?random=3.jpg",
+                "mimeType": "image/png",
+                "extension": "png",
+                "size": 150
+            },
+            {
+                "type": "FileManagerFile",
+                "id": "4",
+                "name": "Documento 4",
+                "thumbnailUrl": "https://picsum.photos/800?random=4.jpg",
+                "url": "https://picsum.photos/800?random=4.jpg",
+                "mimeType": "image/png",
+                "extension": "png",
+                "size": 150
+            },
+            {
+                "type": "FileManagerFile",
+                "id": "5",
+                "name": "Documento 5",
+                "thumbnailUrl": "https://picsum.photos/800?random=5.jpg",
+                "url": "https://picsum.photos/800?random=5.jpg",
+                "mimeType": "image/png",
+                "extension": "png",
+                "size": 150
+            },
+            {
+                "type": "FileManagerFile",
+                "id": "6",
+                "name": "Documento 6",
+                "thumbnailUrl": "https://picsum.photos/800?random=6.jpg",
+                "url": "https://picsum.photos/800?random=6.jpg",
+                "mimeType": "image/png",
+                "extension": "png",
+                "size": 150
+            },
+            {
+                "type": "FileManagerFile",
+                "id": "7",
+                "name": "Documento 7",
+                "thumbnailUrl": "https://picsum.photos/800?random=7.jpg",
+                "url": "https://picsum.photos/800?random=7.jpg",
+                "mimeType": "image/png",
+                "extension": "png",
+                "size": 150
+            },
+            {
+                "type": "FileManagerFile",
+                "id": "8",
+                "name": "Documento 8",
+                "thumbnailUrl": "https://picsum.photos/800?random=8.jpg",
+                "url": "https://picsum.photos/800?random=8.jpg",
+                "mimeType": "image/png",
+                "extension": "png",
+                "size": 150
+            },
+            {
+                "type": "FileManagerFile",
+                "id": "9",
+                "name": "Documento 9",
+                "thumbnailUrl": "https://picsum.photos/800?random=9.jpg",
+                "url": "https://picsum.photos/800?random=9.jpg",
+                "mimeType": "image/png",
+                "extension": "png",
+                "size": 150
+            },
+            {
+                "type": "FileManagerFile",
+                "id": "10",
+                "name": "Documento 10",
+                "thumbnailUrl": "https://picsum.photos/800?random=10.jpg",
+                "url": "https://picsum.photos/800?random=10.jpg",
+                "mimeType": "image/png",
+                "extension": "png",
+                "size": 150
+            }
         ]
+    },
+    "file_manager_4": {
+        "id": "4",
+        "type": "FileManagerPage",
+        "layout": "masonry",
+        "title": "Documentos secretos",
+        "apiUrl": "http://localhost:3000/file_manager/4",
+        "items": [
+            {
+                "type": "FileManagerFile",
+                "id": "1",
+                "name": "Documento 1",
+                "thumbnailUrl": "https://picsum.photos/800.jpg",
+                "url": "https://picsum.photos/800.jpg",
+                "mimeType": "image/png",
+                "extension": "png",
+                "size": 150
+            },
+            {
+                "type": "FileManagerFile",
+                "id": "2",
+                "name": "Documento 2",
+                "thumbnailUrl": "https://picsum.photos/800.jpg",
+                "url": "https://picsum.photos/800.jpg",
+                "mimeType": "image/png",
+                "extension": "png",
+                "size": 150
+            },
+            {
+                "type": "FileManagerFile",
+                "id": "3",
+                "name": "Documento 3",
+                "thumbnailUrl": "https://picsum.photos/800.jpg",
+                "url": "https://picsum.photos/800.jpg",
+                "mimeType": "image/png",
+                "extension": "png",
+                "size": 150
+            }
+        ]
+    },
+    "tickets": {
+        "type": "Page",
+        "layout": "list",
+        "title": "Meus atendimentos",
+        "button": null,
+        "heading": null,
+        "subheading": "Acompanhe o status dos seus atendimentos",
+        "modals": [],
+        "children": [
+            {
+                "type": "ExpandableListItemComponent",
+                "prefix": null,
+                "title": {
+                    "type": "TextComponent",
+                    "text": "Ouvidoria",
+                    "alignment": "start",
+                    "weight": "bold",
+                    "color": null,
+                    "scaleFactor": 1
+                },
+                "subtitle": {
+                    "type": "TextComponent",
+                    "text": "Problemas com o barulho na rua",
+                    "alignment": "start",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1
+                },
+                "description": {
+                    "type": "TextComponent",
+                    "text": "Protocolo: 123456",
+                    "alignment": "start",
+                    "weight": "regular",
+                    "color": null,
+                    "scaleFactor": 1
+                },
+                "suffix": null,
+                "contained": true,
+                "children": [
+                    {
+                        "type": "TextComponent",
+                        "text": "Status: Em andamento",
+                        "alignment": "start",
+                        "weight": "regular",
+                        "color": null,
+                        "scaleFactor": 1
+                    },
+                    {
+                        "type": "TextComponent",
+                        "text": "Data de abertura: 28/07/1997",
+                        "alignment": "start",
+                        "weight": "regular",
+                        "color": null,
+                        "scaleFactor": 1
+                    },
+                    {
+                        "type": "TextComponent",
+                        "text": "Data de fechamento: 28/07/1997",
+                        "alignment": "start",
+                        "weight": "regular",
+                        "color": null,
+                        "scaleFactor": 1
+                    }
+                ]
+            }
+        ],
+        "emptyState": null,
+        "errorState": null,
+        "apiUrl": "https://example.com/api/students/asBAUd79acC"
+    },
+    "home_new": {
+        "type": "Page",
+        "layout": "grid",
+        "title": "Página Inicial",
+        "apiUrl": "http://localhost:3000/home",
+        "drawerItems": [],
+        "heading": "John Doe",
+        "subheading": "Como podemos ajudar você hoje?",
+        "children": [
+            {
+                "type": "CardButtonComponent",
+                "title": null,
+                "subtitle": null,
+                "icon": null,
+                "action": {
+                    "type": "NavigationAction",
+                    "url": "piedpiper:///blog_new"
+                },
+                "backgroundImageUrl": null,
+                "color": null,
+                "disabled": false,
+                "fullWidth": true,
+                "horizontalAlignment": "center",
+                "verticalAlignment": "center",
+                "horizontalSize": 1,
+                "verticalSize": 1.0,
+                "alt": "Teste"
+            }
+        ],
+        "modals": null
+    },
+    "blog_new": {
+        "type": "InfiniteScrollPage",
+        "layout": "list",
+        "title": "Notícias da Cidade ++",
+        "button": {
+            "type": "IconButtonComponent",
+            "action": {
+                "type": "SearchAction",
+                "searchUrl": "http://localhost:3000/search_results",
+                "filtersUrl": null
+            },
+            "disabled": false,
+            "color": null,
+            "filled": false,
+            "tonal": false,
+            "outlined": false,
+            "icon": {
+                "type": "MaterialDesignIconComponent",
+                "color": null,
+                "name": "0xe567"
+            }
+        },
+        "heading": null,
+        "subheading": "Notícias da nossa cidade",
+        "modals": [],
+        "children": [
+            {
+                "type": "CardComponent",
+                "title": "Notícia 1",
+                "subtitle": "Subtítulo da notícia 1",
+                "description": "Descrição da notícia 1",
+                "buttons": [
+                    {
+                        "type": "TextButtonComponent",
+                        "action": {
+                            "type": "NavigationAction",
+                            "url": "piedpiper:///post_new"
+                        },
+                        "disabled": false,
+                        "color": null,
+                        "filled": false,
+                        "tonal": false,
+                        "outlined": false,
+                        "label": "Ler mais",
+                        "icon": null,
+                        "fullWidth": false
+                    }
+                ],
+                "action": {
+                    "type": "NavigationAction",
+                    "url": "piedpiper:///post_new"
+                },
+                "imageUrl": "https://picsum.photos/800.jpg"
+            }
+        ],
+        "emptyState": {
+            "type": "StateComponent",
+            "icon": {
+                "type": "NetworkIconComponent",
+                "color": {
+                    "type": "ThemeColor",
+                    "name": "primary"
+                },
+                "url": "https://picsum.photos/800.jpg"
+            },
+            "title": "Nenhuma notícia encontrada.",
+            "description": "Tente novamente usando outros filtros.",
+            "button": null
+        },
+        "errorState": {
+            "type": "StateComponent",
+            "icon": {
+                "type": "NetworkIconComponent",
+                "color": {
+                    "type": "ThemeColor",
+                    "name": "error"
+                },
+                "url": "https://picsum.photos/800.jpg"
+            },
+            "title": "Ocorreu um erro ao carregar as notícias.",
+            "description": "Tente novamente mais tarde.",
+            "button": {
+                "type": "TextButtonComponent",
+                "action": {
+                    "type": "RefreshAction"
+                },
+                "disabled": false,
+                "color": null,
+                "filled": false,
+                "tonal": false,
+                "outlined": false,
+                "label": "Recarregar a página",
+                "icon": null,
+                "fullWidth": false
+            }
+        },
+        "apiUrl": "blog_new"
+    },
+    "post_new": {
+        "type": "Page",
+        "layout": "column",
+        "title": "Notícia",
+        "button": null,
+        "heading": null,
+        "subheading": null,
+        "modals": [],
+        "children": [
+            {
+                "type": "CarouselComponent",
+                "items": [
+                    {
+                        "type": "CarouselItemComponent",
+                        "imageUrl": "https://picsum.photos/800.jpg",
+                        "action": {
+                            "type": "MediaViewAction",
+                            "mediaUrl": "https://picsum.photos/800.jpg"
+                        }
+                    },
+                    {
+                        "type": "CarouselItemComponent",
+                        "imageUrl": "https://picsum.photos/800.jpg",
+                        "action": {
+                            "type": "MediaViewAction",
+                            "mediaUrl": "https://picsum.photos/800.jpg"
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "TextComponent",
+                "text": "Notícia 1",
+                "alignment": "start",
+                "weight": "regular",
+                "color": null,
+                "scaleFactor": 1
+            },
+            {
+                "type": "RowComponent",
+                "children": [
+                    {
+                        "type": "BadgeComponent",
+                        "label": "Categoria 1",
+                        "icon": null,
+                        "color": null,
+                        "filled": false,
+                        "outlined": true
+                    },
+                    {
+                        "type": "TextComponent",
+                        "text": "Data da publicação",
+                        "alignment": "start",
+                        "weight": "regular",
+                        "color": null,
+                        "scaleFactor": 1
+                    }
+                ]
+            },
+            {
+                "type": "HtmlComponent",
+                "content": "<p>Conteúdo da notícia 1</p>"
+            }
+        ],
+        "emptyState": null,
+        "errorState": {
+            "type": "StateComponent",
+            "icon": {
+                "type": "NetworkIconComponent",
+                "color": {
+                    "type": "ThemeColor",
+                    "name": "error"
+                },
+                "url": "https://picsum.photos/800.jpg"
+            },
+            "title": "Ocorreu um erro ao carregar a notícia.",
+            "description": "Tente novamente mais tarde.",
+            "button": {
+                "type": "TextButtonComponent",
+                "action": {
+                    "type": "RefreshAction"
+                },
+                "disabled": false,
+                "color": null,
+                "filled": false,
+                "tonal": false,
+                "outlined": false,
+                "label": "Recarregar a página",
+                "icon": null,
+                "fullWidth": false
+            }
+        },
+        "apiUrl": "/post_new"
     }
 }

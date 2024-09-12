@@ -1,39 +1,27 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/enums/layout_enum.dart';
 import '../../../view/pages/drawer_page.dart';
+import '../../../view/widgets/modal_component.dart';
 import '../page_builder.dart';
 
 class DrawerPageSerializer {
   static Widget fromJson(Map<String, dynamic> json) {
     return DrawerPage(
-        title: json['title'],
-        drawer: json['drawer'] != null
-            ? PageBuilder.fromJson(json['drawer'])
-            : null,
-        body: PageBuilder.fromJson(json['body']),
-        modals: json['modals'] != null
-            ? Map<String, Widget>.fromEntries(
-                (json['modals'] as List<dynamic>).map(
-                  (entry) => MapEntry(
-                    entry.keys.first,
-                    PageBuilder.fromJson(
-                      entry.values.first,
-                    ),
-                  ),
-                ),
-              )
-            : null);
+      title: json['title'],
+      apiUrl: json['apiUrl'],
+      layout: LayoutEnum.fromString(json['layout']),
+      children: json['children']?.map<Widget>((child) {
+            return PageBuilder.fromJson(child);
+          }).toList() ??
+          [],
+      drawer:
+          json['drawer'] != null ? PageBuilder.fromJson(json['drawer']) : null,
+      modals: json['modals'] != null
+          ? (json['modals'] as Iterable)
+              .map((e) => PageBuilder.fromJson(e) as ModalComponent)
+              .toList()
+          : null,
+    );
   }
 }
-
-// "modals": [
-//             {
-//                 "add-user": {
-//                     "type": "ModalComponent",
-//                     "title": "Adicionar Usuário",
-//                     "body": {
-//                         "type": "AddUserForm"
-//                     }
-//                 }
-//             }
-//         ]

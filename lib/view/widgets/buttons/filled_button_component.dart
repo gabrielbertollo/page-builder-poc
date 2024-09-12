@@ -4,7 +4,8 @@ import 'dart:ui';
 import 'dart:math' as math;
 
 import '../../../data/entities/action.dart';
-import '../../../home.dart';
+
+import '../../pages/page_provider.dart';
 import 'button.dart';
 
 class FilledButtonComponent extends Button {
@@ -28,6 +29,7 @@ class FilledButtonComponent extends Button {
     }
 
     if (icon != null) {
+      // ignore: deprecated_member_use
       final double scale = MediaQuery.textScaleFactorOf(context);
       // Adjust the gap based on the text scale factor. Start at 8, and lerp
       // to 4 based on how large the text is.
@@ -56,7 +58,7 @@ class FilledButtonComponent extends Button {
         notifier: isLoadingListenable,
         onSuccess: () {
           Navigator.of(context).pop();
-          context.read<HomeProvider>().refresh();
+          context.read<PageProvider>().refresh();
         },
       );
       return;

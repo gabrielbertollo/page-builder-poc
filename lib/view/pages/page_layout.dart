@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 
+import '../../core/enums/layout_enum.dart';
+import '../widgets/modal_component.dart';
+
 class PageLayout extends StatelessWidget {
   final String title;
-  final Widget body;
-  final Map<String, Widget>? modals;
+  final String apiUrl;
+  final Widget? skeleton;
+  final List<ModalComponent>? modals;
+  final List<Widget>? children;
+  final LayoutEnum layout;
 
   const PageLayout({
     required this.title,
-    required this.body,
+    required this.apiUrl,
+    required this.layout,
+    this.skeleton,
     this.modals,
+    this.children,
     super.key,
   });
 

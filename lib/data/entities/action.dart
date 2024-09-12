@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
 
-import '../../home.dart';
 import '../../view/pages/page_provider.dart';
 import '../../view/widgets/form_component.dart';
 
@@ -11,19 +10,28 @@ abstract class Action {
 }
 
 class ModalAction implements Action {
-  final String? modalName;
+  final String modalId;
 
-  ModalAction({this.modalName});
+  ModalAction({required this.modalId});
 
   @override
   void handleInteraction({BuildContext? context}) {
     showDialog(
       context: context!,
       builder: (_) {
+        print(
+            context.read<PageProvider>().pageNotifier.value!.modals!.first.id);
+        print(modalId);
         return ChangeNotifierProvider.value(
-          value: context.read<HomeProvider>(),
-          child: context.read<PageProvider>().modals![modalName!]!,
-        );
+            value: context.read<PageProvider>(),
+            child: context
+                .read<PageProvider>()
+                .pageNotifier
+                .value!
+                .modals!
+                .firstWhere(
+                  (modal) => modal.id == modalId,
+                ));
       },
     );
   }
@@ -46,6 +54,23 @@ class NavigationAction implements Action {
   }
 }
 
+class BuilderNavigationAction implements Action {
+  final Widget? page;
+
+  BuilderNavigationAction({this.page});
+
+  @override
+  void handleInteraction({BuildContext? context}) {
+    Navigator.pushNamed(
+      context!,
+      '/builder',
+      arguments: {
+        'page': page,
+      },
+    );
+  }
+}
+
 class CancelAction implements Action {
   @override
   void handleInteraction({BuildContext? context}) {
@@ -56,7 +81,7 @@ class CancelAction implements Action {
 class RefreshAction implements Action {
   @override
   void handleInteraction({BuildContext? context}) {
-    context!.read<HomeProvider>().refresh();
+    context!.read<PageProvider>().refresh();
   }
 }
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
+import 'core/enums/layout_enum.dart';
 import 'data/serializers/page_builder.dart';
-import 'home.dart';
+import 'view/pages/drawer_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -22,15 +24,22 @@ class MainApp extends StatelessWidget {
       routes: {
         '/builder': (context) {
           final args = ModalRoute.of(context)!.settings.arguments as Map?;
-          return Home(
-            requestUrl: args?['requestUrl'],
-            skeleton: args?['skeleton'] != null
-                ? PageBuilder.fromJson(args?['skeleton'])
-                : null,
-          );
+          if (args == null) {
+            return const DrawerPage(
+              title: 'Error',
+              apiUrl: 'http://localhost:3000/error',
+              layout: LayoutEnum.grid,
+            );
+          }
+          final page = args['page'];
+          return page;
         },
       },
-      home: const Home(),
+      home: const DrawerPage(
+        title: 'Home',
+        apiUrl: 'http://localhost:3000/home',
+        layout: LayoutEnum.grid,
+      ),
     );
   }
 }

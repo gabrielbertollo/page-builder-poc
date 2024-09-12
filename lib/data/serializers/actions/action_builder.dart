@@ -1,4 +1,5 @@
 import '../../entities/action.dart';
+import 'builder_navigation_action_serializer.dart';
 import 'cancel_action_serializer.dart';
 import 'modal_action_serializer.dart';
 import 'navigation_action_serializer.dart';
@@ -18,6 +19,8 @@ class ActionSerializer {
         return SubmitActionSerializer.fromJson(json);
       case 'refresh':
         return RefreshActionSerializer.fromJson(json);
+      case 'builderNavigation':
+        return BuilderNavigationActionSerializer.fromJson(json);
       default:
         throw Exception('Invalid action type');
     }
